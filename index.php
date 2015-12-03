@@ -10,16 +10,25 @@
  - bordery tlacitkum
  - udelat registraci
  - pridat do login stranky prihlaseni pro zamenstnance
- -
+ - phpeeckem nainsertovat sedadla
 -->
 <body>
 	<?php include 'header.php'; ?>
 	<div class="content">
 		<?php require_once 'db_connection.php'; ?>
 		<?php
-			$sql = ";";
-			if ($db->query($sql) === TRUE)
-				echo("DEBUG: Vlo¾eno");
+			$sql = "SELECT nazev, delka FROM Film";
+			//$stmt = $db->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
+			$result = $db->query($sql);
+			if ($result->num_rows > 0)
+			{
+				while($row = $result->fetch_assoc())
+				{
+					echo("<div>");
+					echo("Nazev filmu: " . $row["nazev"] . " | " . "Delka: " . $row["delka"]);
+					echo("</div>");
+				}
+			}
 			else
 			    echo ("DEBUG: Chyba od sql: " . $db->error);
 		?>
