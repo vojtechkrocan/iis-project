@@ -8,6 +8,7 @@
 
 <body>
 	<?php include 'header.php' ?>
+	<?php require_once 'db_connection.php'; ?>
 	<div class="content" align="center">
 		<form action="index.php" method="post">
 			<table>
@@ -23,9 +24,9 @@
 				<tr>
 					<td align="center"><input type="text" name="password" size="17" /></td>
 				</tr>
-				
+
 				<tr>
-					<td align="center" colspan="2"><input type="submit" name="Submit" size="17" /></td>
+					<td align="center" colspan="2" style="padding-top: 10px;"><input type="submit" name="Submit" size="17" /></td>
 				</tr>
 			</table>
 		</form>

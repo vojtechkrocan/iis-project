@@ -17,10 +17,14 @@
 				</tr>
 				<tr>
 					<td>Jméno:</td>
+				</tr>
+				<tr>
 					<td align="center"><input type="text" name="firstname" size="30" /></td>
 				</tr>
 				<tr>
 					<td>Přijmení:</td>
+				</tr>
+				<tr>
 					<td align="center"><input type="text" name="surname" size="30" /></td>
 				</tr>
 
