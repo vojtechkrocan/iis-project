@@ -1,5 +1,5 @@
 <?php
-	require_once '../web-config.php';
+	require_once '../../web-config.php';
 
 	$db = new mysqli($servername, $username, $password, $dbname);
 	if ($conn->connect_error)
