@@ -8,7 +8,8 @@
 
 <body>
 	<?php include 'header.php' ?>
-	<?php require_once 'db_connection.php'; ?>
+	<?php //require_once 'db_connection.php';
+	 ?>
 	<div class="content" align="center">
 		<form action="index.php" method="post">
 			<table>
