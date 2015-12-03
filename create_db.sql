@@ -1,5 +1,5 @@
 USE xkaliv06;
-SET NAMES 'utf8';
+SET NAMES 'iso-8859-2';
 
 drop table if exists Kino CASCADE;
 drop table if exists Sal CASCADE;

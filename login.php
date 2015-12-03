@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>PÅ™ihlÃ¡Å¡enÃ­</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+	<title>Pøihlá¹ení­</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -13,7 +13,7 @@
 		<form action="index.php" method="post">
 			<table>
 				<tr>
-					<td>RodnÃ© ÄÃ­slo:</td>
+					<td>Vá¹ login:</td>
 				</tr>
 				<tr>
 					<td align="center"><input type="text" name="pin" size="17" /></td>
@@ -30,6 +30,9 @@
 				</tr>
 			</table>
 		</form>
+		<div>
+			<a href="worker_login.php">Pøihlá¹ení pro zamìstnance</a>
+		</div>
 	</div>
 </body>
 </html>

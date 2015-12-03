@@ -1,8 +1,8 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Å˜etÄ›zec multikin</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
+	<title>Øetìzec multikin</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <!-- TODO:
@@ -19,7 +19,7 @@
 		<?php
 			$sql = "INSERT INTO Zanr (nazev) VALUES ('Porno')";
 			if ($db->query($sql) === TRUE)
-				echo("DEBUG: Vlozeno");
+				echo("DEBUG: Vlo¾eno");
 			else
 			    echo ("DEBUG: Chyba od sql: " . $db->error);
 		?>

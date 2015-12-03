@@ -5,12 +5,10 @@
 	<title>Øetìzec multikin</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
-
 <body>
-
 	<?php include 'header.php' ?>
 	<div class="content">
-		Program je:
+		<h2>Pøihlá¹ení­ pro zamìstnance</h2>
 	</div>
 </body>
 </html>

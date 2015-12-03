@@ -2,8 +2,8 @@
 	require_once '../../web-config.php';
 
 	$db = new mysqli($servername, $username, $password, $dbname);
-	if ($conn->connect_error)
-		die("NepodaÅ™ilo se pÅ™ipojit k databÃ¡zi: " . $conn->connect_error);
+	if ($db->connect_error)
+		die("Nepodaøilo se pøipojit k databázi: " . $db->connect_error);
 
-	echo ("DEBUG: DatabÃ¡ze ÃºspÄ›Å¡nÄ› pÅ™ipojena.</br>");
+	echo ("DEBUG: Pøipojení k DB bylo úspì¹né.</br>");
 ?>
