@@ -17,7 +17,7 @@
 	<div class="content">
 		<?php require_once 'db_connection.php'; ?>
 		<?php
-			$sql = "INSERT INTO Zanr (nazev) VALUES ('Porno')";
+			$sql = ";";
 			if ($db->query($sql) === TRUE)
 				echo("DEBUG: Vlo¾eno");
 			else

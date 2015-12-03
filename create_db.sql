@@ -1,5 +1,5 @@
 USE xkaliv06;
-SET NAMES 'iso-8859-2';
+SET NAMES 'utf8';
 
 drop table if exists Kino CASCADE;
 drop table if exists Sal CASCADE;
@@ -147,12 +147,6 @@ ALTER TABLE `Patri` ADD CONSTRAINT `fk_Sed_patri` FOREIGN KEY (`id_sedadla`) REF
 
 ALTER TABLE `VIP_Klient` ADD INDEX (`id_klienta`) ;
 ALTER TABLE `VIP_Klient` ADD CONSTRAINT `fk_Klient_VIP` FOREIGN KEY (`id_klienta`) REFERENCES `Klient` (`id_klienta`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
-
-ALTER TABLE `Projekce`
-	ADD CONSTRAINT chk_cas_zah_cas_ukonc
-	CHECK (cas_zahajeni <= cas_ukonceni);
-
 
 INSERT INTO Kino VALUES (1, 'Kino Brno', 'Brno', 'Kolejní', 666888999);
 INSERT INTO Kino VALUES (2, 'Kino Praha', 'Praha', 'Nádraní', 789456123);
