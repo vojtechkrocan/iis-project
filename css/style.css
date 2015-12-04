@@ -2,7 +2,7 @@ body {
 	font: 16px/1.5 Georgia, Verdana, Arial;
 	margin: 0 auto;
 	width: 800px;
-	color: #333;
+	color: #CDCDC0;
 	background-color: #fff;
 }
 
@@ -52,14 +52,15 @@ form .error {
 }
 
 h1, h2 {
-	color: #3484D2;
+	color: #31A9B8;
 	font-size: 1.7em;
-	text-align: center;
 	font-weight: normal;
+	font-family: Oxygen, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+
 }
 
 h1 a {
-	color: #3484D2;
+	color: #31A9B8;
 }
 
 .pageTitle {
@@ -181,13 +182,21 @@ textarea {
 .content {
 	padding-top: 20px;
 	padding-bottom: 20px;
-	height: 100vh;
+	height: 100%;
 	padding-left: 16px;
 	padding-right: 16px;
-	background-color: #CDCDC0;
     border-top: 5px solid #31A9B8;
 }
 
 table {
 	align: center;
+}
+
+.movie {
+	color: #31A9B8;
+	/* height: 60px; */
+	max-width: 35px;
+	text-align: center;
+	overflow: hidden;
+	padding: 20px;
 }

@@ -7,10 +7,28 @@
 </head>
 
 <body>
-
 	<?php include 'header.php' ?>
+	<?php require_once 'db_connection.php'; ?>
 	<div class="content">
-		Program je:
+		<?php
+			$sql = "SELECT P.cas_zahajeni, S.id_salu, F.id_filmu FROM Film AS F INNER JOIN Projekce AS P INNER JOIN Sal AS S";
+			$result = $db->query($sql);
+			if ($result->num_rows > 0)
+			{
+
+				while($row = $result->fetch_assoc())
+				{
+					echo("<span>");
+					echo("Zahajeni" . $row["P.cas_zahajeni"]);
+					echo("Film: " . $row["F.id_filmu"]);
+					echo("Sal: " . $row["S.id_salu"]);
+					echo("</span>");
+				}
+
+			}
+			else
+			    echo ("DEBUG: Chyba od sql: " . $db->error);
+		?>
 	</div>
 </body>
 </html>

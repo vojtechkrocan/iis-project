@@ -11,23 +11,37 @@
  - udelat registraci
  - pridat do login stranky prihlaseni pro zamenstnance
  - phpeeckem nainsertovat sedadla
+ - do programu kalendar - jinak zobrazovat dnes, zitra, pozitri...a pak kalendar
+ - poazadi - minimalne vybrat lepsi barvu
 -->
 <body>
 	<?php include 'header.php'; ?>
 	<div class="content">
 		<?php require_once 'db_connection.php'; ?>
+		<h2>Nejnovìj¹í filmy</h2>
 		<?php
-			$sql = "SELECT nazev, delka FROM Film";
+			$sql = "SELECT nazev, delka FROM Film ORDER BY id_filmu DESC";
 			//$stmt = $db->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
 			$result = $db->query($sql);
 			if ($result->num_rows > 0)
 			{
+
 				while($row = $result->fetch_assoc())
 				{
-					echo("<div>");
-					echo("Nazev filmu: " . $row["nazev"] . " | " . "Delka: " . $row["delka"]);
-					echo("</div>");
+					/*
+					echo("<table class='movie'>");
+					echo("<tr><td>IMG</td></tr>");
+					echo("<tr><td>Nazev filmu: " . $row["nazev"] . "</td></tr>");
+					echo("<tr><td>Delka: " . $row["delka"] . "</td></tr>");
+					echo("</table>");
+					*/
+					echo("<span class='movie'>");
+					echo("IMG</br>");
+					echo("Nazev" . $row["nazev"] . "</br>");
+					echo("Delka: " . $row["delka"] . "</br>");
+					echo("</br></span>");
 				}
+
 			}
 			else
 			    echo ("DEBUG: Chyba od sql: " . $db->error);
