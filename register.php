@@ -33,6 +33,14 @@
 				</tr>
 			</table>
 		</form>
+		<?php
+			session_start();
+			if(isset($_SESSION['user'])!="")
+			{
+			 header("Location: home.php");
+			}
+			include_once 'dbconnect.php';
+		?>
 	</div>
 </body>
 </html>

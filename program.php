@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
-	<title>Řetězec multikin</title>
+	<title>Program</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -10,6 +10,7 @@
 	<?php include 'header.php' ?>
 	<?php require_once 'db_connection.php'; ?>
 	<div class="content">
+		<h2>Program</h2>
 		<?php
 			$sql = "SELECT DISTINCT P.cas_zahajeni, S.id_salu, F.nazev
 					FROM Projekce P, Film F, Sal S

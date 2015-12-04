@@ -7,6 +7,7 @@
 </head>
 <body>
 	<?php include 'header.php' ?>
+	<?php require_once 'db_connection.php'; ?>
 	<div class="content">
 		<h2>Pøihlá¹ení­ pro zamìstnance</h2>
 		<form action="index.php" method="post">

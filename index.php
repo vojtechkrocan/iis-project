@@ -32,9 +32,9 @@
 					if($divide % 3 == 0)
 						echo("<div class='movies'>");
 					echo("<table class='moviesTable'>");
-					echo("<tr><td height='80%'><img src='img/movies/asd.jpg' width='100' height='120'></td></tr>");
+					echo("<tr><td height='230px'><img src='img/movies/asd.jpg' width='100%' height='100%'></td></tr>");
 					echo("<tr><td><span class=''>" . $row["nazev"] . "</span></td></tr>");
-					echo("<tr><td><span class='description'>" . $row["delka"] . "minut</span></td></tr>");
+					echo("<tr><td><span class='description'>" . $row["delka"] . " minut</span></td></tr>");
 					echo("</table>");
 					if($divide % 3 == 2)
 						echo("</div>");

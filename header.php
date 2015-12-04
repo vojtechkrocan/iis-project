@@ -2,7 +2,7 @@
 <div class="mainMenu">
 		<div class="userArea">
 			<!-- tady phpeckem udelat prihlasit / odhlasit -->
-			<a href="login.php" class="userAreaBG">Pøihlásit se</a>
+			<a href="login.php" class="bigButton">Pøihlásit se</a>
 			<!-- TODO odhlasit se -->
 		</div>
 	<!-- TODO img dat jako background

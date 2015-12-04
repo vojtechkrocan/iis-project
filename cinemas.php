@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
-	<title>Řetězec multikin</title>
+	<title>Kina</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>

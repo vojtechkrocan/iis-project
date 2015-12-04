@@ -1,8 +1,8 @@
 <?php
 	require_once '../../web-config.php';
 
-	$db = new mysqli($servername, $username, $password, $dbname);
+	$db = new mysqli($dbserver, $dbusername, $dbpass, $dbname);
 	if ($db->connect_error)
-		die("Nepodaï¿½ilo se pï¿½ipojit k databï¿½zi: " . $db->connect_error);
+		die("Nepodaøilo se pøipojit k databázi: " . $db->connect_error);
 	$db->set_charset('latin2');
 ?>

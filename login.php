@@ -8,11 +8,17 @@
 
 <body>
 	<?php include 'header.php' ?>
-	<?php //require_once 'db_connection.php';
-	 ?>
+	<?php require_once 'db_connection.php'; ?>
 	<div class="content">
-		<form action="index.php" method="post">
-			<table>
+		<h2>Pøihlásit</h2>
+		<form action="index.php" method="post" align="center">
+			<!--
+			<div>Vá¹ login:</div>
+			<div><input type="text" name="pin" size="23"/></div>
+			<div>Heslo:</div>
+			<div><input type="text" name="password" size="23" /></div>
+			-->
+			<table align="center" text-align>
 				<tr>
 					<td align="left">Vá¹ login:</td>
 				</tr>
@@ -27,12 +33,12 @@
 				</tr>
 
 				<tr>
-					<td align="center" colspan="2" style="padding-top: 10px;"><input type="submit" name="Submit" size="17" /></td>
+					<td align="center" colspan="2" style="padding-top: 10px;"><input type="submit" name="Submit" size="20" /></td>
 				</tr>
 			</table>
 		</form>
 		<div>
-			<a href="worker_login.php" class="userAreaBG">Pøihlá¹ení pro zamìstnance</a>
+			<a href="worker_login.php" class="smallButton">Pøihlá¹ení pro zamìstnance</a>
 		</div>
 	</div>
 	<?php include 'footer.php'; ?>
