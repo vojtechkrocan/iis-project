@@ -6,18 +6,20 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <!-- TODO:
- - tady: 3-5 clanku o novejch filmech, co se vysilaji - slo by selectem
- - bordery tlacitkum
- - udelat registraci
- - pridat do login stranky prihlaseni pro zamenstnance
+ - prihlaseni uzivatele
+ - registrace uz.
+ - zakazat stranky neprihlasenemu uzovateli
+ - predelat tlacitka
  - phpeeckem nainsertovat sedadla
  - do programu kalendar - jinak zobrazovat dnes, zitra, pozitri...a pak kalendar
- - poazadi - minimalne vybrat lepsi barvu
+ - pozadi
 -->
 <body>
-	<?php include 'header.php'; ?>
+	<?php
+		include 'header.php';
+		require_once 'db_connection.php';
+	?>
 	<div class="content">
-		<?php require_once 'db_connection.php'; ?>
 		<h2>Nejnovìj¹í filmy</h2>
 		<?php
 			$sql = "SELECT nazev, delka FROM Film ORDER BY id_filmu DESC LIMIT 6";
@@ -25,7 +27,6 @@
 			$result = $db->query($sql);
 			if ($result->num_rows > 0)
 			{
-				//echo("<div>");
 				$divide = 0;
 				while($row = $result->fetch_assoc())
 				{
@@ -33,23 +34,16 @@
 						echo("<div class='movies'>");
 					echo("<table class='moviesTable'>");
 					echo("<tr><td height='230px'><img src='img/movies/asd.jpg' width='100%' height='100%'></td></tr>");
-					echo("<tr><td><span class=''>" . $row["nazev"] . "</span></td></tr>");
+					echo("<tr><td height='45px'><span class=''>" . $row["nazev"] . "</span></td></tr>");
 					echo("<tr><td><span class='description'>" . $row["delka"] . " minut</span></td></tr>");
 					echo("</table>");
 					if($divide % 3 == 2)
 						echo("</div>");
 					$divide++;
-					/*
-					echo("<span class='movie'>");
-					echo("IMG</br>");
-					echo("Nazev: " . $row["nazev"] . "</br>");
-					echo("Delka: " . $row["delka"] . "</br>");
-					echo("</br></span>");*/
 				}
-				//echo("</div>");
 			}
 			else
-			    echo ("DEBUG: Chyba sql: " . $db->error);
+			    echo ("Doslo k SQL chybe: " . $db->error);
 		?>
 	</div>
 	<?php include 'footer.php'; ?>

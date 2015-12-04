@@ -3,33 +3,21 @@ body {
 	margin: 0 auto;
 	width: 800px;
 	color: white;
-	background-color: #fff;
+	background-color: #e3e3e3;
 }
 
-#ajax-spinner {
-	margin: 15px 0 0 15px;
-	padding: 13px;
-	background: white url('../images/spinner.gif') no-repeat 50% 50%;
-	font-size: 0;
-	z-index: 123456;
-	display: none;
+.content {
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 16px;
+	padding-right: 16px;
+    border-top: 5px solid #31A9B8;
+	background-color: #222222;
+	text-align: center;
 }
 
-div.flash {
-	color: black;
-	background: #FFF9D7;
-	border: 1px solid #E2C822;
-	padding: 1em;
-	margin: 1em 0;
-}
-
-a[href^="#error:"] {
-	background: red;
-	color: white;
-}
-
+/***** FORM *****/
 form th, form td {
-	vertical-align: top;
 	font-weight: normal;
 	font-family: 'Open Sans', Verdana, 'Geneva CE', lucida, sans-serif;
 }
@@ -39,7 +27,7 @@ form tr {
 }
 
 form th {
-	text-align: right;
+	text-align: left;
 }
 
 form .required label {
@@ -56,15 +44,10 @@ h1, h2 {
 	font-size: 1.7em;
 	font-weight: normal;
 	font-family: Oxygen, Arial, 'Helvetica Neue', Helvetica, sans-serif;
-
 }
 
 h1 a {
 	color: #31A9B8;
-}
-
-.pageTitle {
-	text-align: left;
 }
 
 h2 {
@@ -80,31 +63,34 @@ h2 {
 	margin: 0 0 -1em;
 }
 
-.comment {
-	padding-bottom: 2em;
+.movies {
+	color: #31A9B8;
+	text-align: center;
+	margin: 20px;
 }
 
-.comments {
-	font-size: .9em;
+.pageTitle {
+	text-align: left;
 }
 
-textarea {
-	min-width: 400px;
-	min-height: 200px;
+.program {
+	color: #31A9B8;
 }
 
-.navig {
-	margin: 0 0 1em;
-	padding: 0;
-	text-align: right;
+.cinemas {
+	text-align: left;
 }
 
-.navig li {
-	display: inline;
-	margin: 0 1em 0 0;
-	padding: 0;
+.description {
+	font-size: 0.8em;
+	font-family: 'Open Sans', Verdana, 'Geneva CE', lucida, sans-serif;
 }
 
+.link {
+	text-decoration: none;
+}
+
+/***** MENU *****/
 .mainMenu {
 	background-image: url('../img/header.png');
 	/* background-color: #CF3721; */
@@ -128,14 +114,6 @@ textarea {
 	color: #ffc423;
 }
 
-/*
-.menuBG {
-	 background-color: #31A9B8;
-	padding-bottom: 12px;
-	padding-top: 12px;
-	border-radius: 1px;
-}*/
-
 .menuItem {
 	padding-right: 25px;
 	padding-left: 25px;
@@ -151,6 +129,33 @@ textarea {
 	padding-top: 30px;
 	padding-right: 30px;
 	padding-bottom: 8px;
+}
+
+/***** POMOCNE *****/
+.topMargin {
+	margin-top: 15px;
+}
+
+.topPadding {
+	margin-top: 15px;
+}
+
+/***** BUTTONS *****/
+.smallButton {
+	font-size: 0.78em;
+	background-color: #31A9B8;
+	border-radius: 4px;
+	text-align: center;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 22px;
+	padding-right: 22px;
+	text-decoration: none;
+	color: #fff;
+}
+.smallButton:hover {
+	background-color: white;
+	color: #ffc423;
 }
 
 .bigButton {
@@ -170,38 +175,33 @@ textarea {
 	color: #ffc423;
 }
 
-.smallButton {
-	font-size: 0.78em;
-	background-color: #31A9B8;
-	border-radius: 4px;
-	text-align: center;
-	padding-top: 8px;
-	padding-bottom: 8px;
-	padding-left: 22px;
-	padding-right: 22px;
-	text-decoration: none;
-	color: #fff;
-}
-.smallButton:hover {
-	background-color: white;
-	color: #ffc423;
-}
-
-
-.content {
-	padding-top: 20px;
-	padding-bottom: 20px;
-	/*height: 100%;*/
-	padding-left: 16px;
-	padding-right: 16px;
-    border-top: 5px solid #31A9B8;
-	background-color: #CDCDC0;
-	text-align: center;
-}
-
+/***** TABLE *****/
 table {
 	text-align: center;
 	display: inline-table;
+	color: #00c5cd;
+}
+
+table tr td button
+{
+	width:100%;
+	height:45px;
+	border:0px;
+	background:rgba(12,45,78,11);
+	background:-moz-linear-gradient(top, #595959 , #515151);
+	border-radius:3px;
+	box-shadow: 1px 1px 1px rgba(1,0,0,0.2);
+	color:#f9f9f9;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:18px;
+	font-weight:bolder;
+	text-transform:uppercase;
+}
+
+table tr td button:active
+{
+	position:relative;
+	top:1px;
 }
 
 .moviesTable {
@@ -209,33 +209,10 @@ table {
 	width: 200px;
 	margin: 15px;
 	border-radius: 2px;
-	border: 1px solid black;
-}
-.movies {
-	color: #31A9B8;
-	/* height: 60px;
-	max-width: 200px; */
-	text-align: center;
-	margin: 20px;
+	border: 1px solid #fff;
 }
 
-.program {
-	color: #31A9B8;
-}
-
-.cinemas {
-	text-align: left;
-}
-
-.description {
-	font-size: 0.8em;
-	font-family: 'Open Sans', Verdana, 'Geneva CE', lucida, sans-serif;
-}
-
-.link {
-	text-decoration: none;
-}
-
+/***** FOOTER *****/
 .footer {
 	font-size: 0.62em;
 	font-family: 'Open Sans', Verdana, 'Geneva CE', lucida, sans-serif;
