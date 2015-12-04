@@ -93,13 +93,6 @@ textarea {
 	min-height: 200px;
 }
 
-.footer {
-	border-top: 1px solid #CCC;
-	margin: 2em 0;
-	padding-top: 1em;
-	text-align: center;
-}
-
 .navig {
 	margin: 0 0 1em;
 	padding: 0;
@@ -198,7 +191,7 @@ table {
 	height: 230px;
 	width: 200px;
 	margin: 15px;
-	border-radius: 4px;
+	border-radius: 2px;
 }
 .movies {
 	color: #31A9B8;
@@ -213,7 +206,11 @@ table {
 }
 
 .footer {
-	font-size: 0.7em;
+	font-size: 0.62em;
+	font-family: 'Open Sans', Verdana, 'Geneva CE', lucida, sans-serif;
 	text-align: center;
 	color: #000000;
+	border-top: 1px solid #000000;
+	padding: 0.5em 0.5;
+	text-align: center;
 }
