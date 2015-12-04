@@ -20,7 +20,7 @@
 				{
 					echo("<div>");
 					echo("<h2>" . $row["nazev"] . "</h2>");
-					echo("<p>" . $row["adresa"] . "</p>");
+					echo("<span class='description'>" . $row["adresa"] . "</span>");
 					echo("</div>");
 				}
 				echo("</div>");

@@ -12,13 +12,13 @@
 		<form action="index.php" method="post">
 			<table>
 				<tr>
-					<td>Vá¹ login:</td>
+					<td align="left">Vá¹ login:</td>
 				</tr>
 				<tr>
 					<td align="center"><input type="text" name="pin" size="17" /></td>
 				</tr>
 				<tr>
-					<td>Heslo:</td>
+					<td align="left">Heslo:</td>
 				</tr>
 				<tr>
 					<td align="center"><input type="text" name="password" size="17" /></td>

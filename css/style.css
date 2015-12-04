@@ -184,7 +184,6 @@ textarea {
 table {
 	text-align: center;
 	display: inline-table;
-	border: 1px solid black;
 }
 
 .moviesTable {
@@ -192,6 +191,7 @@ table {
 	width: 200px;
 	margin: 15px;
 	border-radius: 2px;
+	border: 1px solid black;
 }
 .movies {
 	color: #31A9B8;
@@ -207,6 +207,15 @@ table {
 
 .cinemas {
 	text-align: left;
+}
+
+.description {
+	font-size: 0.8em;
+	font-family: 'Open Sans', Verdana, 'Geneva CE', lucida, sans-serif;
+}
+
+.link {
+	text-decoration: none;
 }
 
 .footer {

@@ -10,17 +10,17 @@
 	<?php include 'header.php' ?>
 	<?php //require_once 'db_connection.php';
 	 ?>
-	<div class="content" align="center">
+	<div class="content">
 		<form action="index.php" method="post">
 			<table>
 				<tr>
-					<td>Vá¹ login:</td>
+					<td align="left">Vá¹ login:</td>
 				</tr>
 				<tr>
 					<td align="center"><input type="text" name="pin" size="17" /></td>
 				</tr>
 				<tr>
-					<td>Heslo:</td>
+					<td align="left">Heslo:</td>
 				</tr>
 				<tr>
 					<td align="center"><input type="text" name="password" size="17" /></td>
@@ -32,7 +32,7 @@
 			</table>
 		</form>
 		<div>
-			<span class="link"><a href="worker_login.php">Pøihlá¹ení pro zamìstnance</a></span>
+			<a href="worker_login.php" class="userAreaBG">Pøihlá¹ení pro zamìstnance</a>
 		</div>
 	</div>
 	<?php include 'footer.php'; ?>
