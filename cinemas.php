@@ -6,10 +6,29 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
 	<?php include 'header.php' ?>
+	<?php require_once 'db_connection.php'; ?>
 	<div class="content">
-		Kina:
+		<?php
+			$sql = "SELECT nazev, adresa
+					FROM Kino";
+			$result = $db->query($sql);
+			if ($result->num_rows > 0)
+			{
+				echo("<div class='cinemas'>");
+				while($row = $result->fetch_assoc())
+				{
+					echo("<div>");
+					echo("<h2>" . $row["nazev"] . "</h2>");
+					echo("<p>" . $row["adresa"] . "</p>");
+					echo("</div>");
+				}
+				echo("</div>");
+			}
+			else
+			    echo ("DEBUG: Chyba sql: " . $db->error);
+		?>
 	</div>
+	<?php include 'footer.php'; ?>
 </body>
 </html>

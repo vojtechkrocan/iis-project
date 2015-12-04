@@ -35,5 +35,6 @@
 			<span class="link"><a href="worker_login.php">Pøihlá¹ení pro zamìstnance</a></span>
 		</div>
 	</div>
+	<?php include 'footer.php'; ?>
 </body>
 </html>

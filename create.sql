@@ -1,5 +1,5 @@
 USE xkaliv06;
-SET NAMES 'latin2';
+SET NAMES 'utf8';
 
 drop table if exists Kino CASCADE;
 drop table if exists Sal CASCADE;
@@ -19,7 +19,7 @@ CREATE TABLE `Kino` (
 	nazev VARCHAR(50) NOT NULL COLLATE latin2_czech_cs,
 	mesto VARCHAR(50) COLLATE latin2_czech_cs,
 	adresa VARCHAR(50) COLLATE latin2_czech_cs,
-	telefoni_cislo VARCHAR(20) NOT NULL COLLATE latin2_czech_cs
+	telefoni_cislo VARCHAR(20) NOT NULL
 );
 
 CREATE TABLE `Sal` (
@@ -94,12 +94,12 @@ CREATE TABLE `Rezervace` (
 	`id_projekce` INTEGER NOT NULL,
 	datum DATETIME NOT NULL,
 	stav TINYINT(1),
-	telefoni_cislo VARCHAR(20) COLLATE latin2_czech_cs
+	telefoni_cislo VARCHAR(20)
 );
 
 CREATE TABLE `VIP_Klient` (
 	`id_klienta` int(10) NOT NULL,
-	telefoni_cislo VARCHAR(20) COLLATE latin2_czech_cs,
+	telefoni_cislo VARCHAR(20),
 	adresa VARCHAR(50) COLLATE latin2_czech_cs,
 	sleva INTEGER,
 	platnost DATETIME
@@ -154,44 +154,44 @@ ALTER TABLE `Projekce`
 	CHECK (cas_zahajeni <= cas_ukonceni);
 
 
-INSERT INTO Kino VALUES (1, 'Kino Brno', 'Brno', 'Kolejní', 666888999);
-INSERT INTO Kino VALUES (2, 'Kino Praha', 'Praha', 'Nádra¾ní', 789456123);
-INSERT INTO Kino VALUES (3, 'Kino Ostrava', 'Ostrava', 'Provaznická', 321654987);
+INSERT INTO Kino VALUES (1, 'Kino Brno', 'Brno', 'KolejnÃ­', 666888999);
+INSERT INTO Kino VALUES (2, 'Kino Praha', 'Praha', 'NÃ¡draÂžnÃ­', 789456123);
+INSERT INTO Kino VALUES (3, 'Kino Ostrava', 'Ostrava', 'ProvaznickÃ¡', 321654987);
 
 INSERT INTO Sal VALUES (1, 2, '12', 300, '3D, 2D');
 INSERT INTO Sal VALUES (2, 3, '8', 120, '3D, 2D');
 INSERT INTO Sal VALUES (3, 1, '5', 80, '2D');
 
-INSERT INTO Zanr VALUES (1, 'Rodinný½');
+INSERT INTO Zanr VALUES (1, 'RodinnÃ½');
 INSERT INTO Zanr VALUES (2, 'Komedie');
 INSERT INTO Zanr VALUES (3, 'Thriller');
 INSERT INTO Zanr VALUES (4, 'Drama');
 INSERT INTO Zanr VALUES (5, 'Horror');
-INSERT INTO Zanr VALUES (6, 'Dokumentární­');
-INSERT INTO Zanr VALUES (7, 'Akèní­');
-INSERT INTO Zanr VALUES (8, 'Dobrodru¾ní½');
+INSERT INTO Zanr VALUES (6, 'DokumentÃ¡rnÃ­');
+INSERT INTO Zanr VALUES (7, 'AkÄnÃ­');
+INSERT INTO Zanr VALUES (8, 'DobrodruÅ¾nÃ½');
 INSERT INTO Zanr VALUES (9, 'Sci-fi');
 
 INSERT INTO Film VALUES (1, 1, 'Les', 'Woody Allen', 96, STR_TO_DATE('25.09.2014','%d.%m.%Y'), NULL);
 INSERT INTO Film VALUES (2, 4, 'Hello', 'Adele Buckingham', 96, STR_TO_DATE('25.09.2014','%d.%m.%Y'), NULL);
-INSERT INTO Film VALUES (3, 9, 'Star Wars: Jabba Hutt je zpì›t', 'George Lucas', 102, STR_TO_DATE('01.01.2015','%d.%m.%Y'), NULL);
+INSERT INTO Film VALUES (3, 9, 'Star Wars: Jabba Hutt je zpÄ›t', 'George Lucas', 102, STR_TO_DATE('01.01.2015','%d.%m.%Y'), NULL);
 INSERT INTO Film VALUES (4, 7, 'Rambo', 'Steven Segal', 95, STR_TO_DATE('10.05.2013','%d.%m.%Y'), NULL);
 INSERT INTO Film VALUES (5, 6, 'Rambo vs. Terminator', 'Arnold Schwarzeneger', 149, STR_TO_DATE('01.03.2015','%d.%m.%Y'), NULL);
-INSERT INTO Film VALUES (6, 7, 'Rychle a Zbì›sile 12: Transormers vrací­ úder', 'Clint Eastwood', 159, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
-INSERT INTO Film VALUES (7, 8, 'Harry Potter: Muddle Story', 'Zdenì›k Tro¹ka', 65, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
-INSERT INTO Film VALUES (8, 6, '8000 Metrù nad Moøem', 'Willy Guy', 90, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
-INSERT INTO Film VALUES (9, 4, 'Kód Pravdy', 'Jáchym Hladil', 159, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
-INSERT INTO Film VALUES (10, 6, 'Mars: Voda a ¾ivot', 'John Geller', 102, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
-INSERT INTO Film VALUES (11, 2, 'Policie Ulanbatar: Zmizení­ jurty', 'Sechuan Jiang', 96, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
-INSERT INTO Film VALUES (12, 1, 'Agent ve ©lole 3', 'Sheldon Reynolds', 80, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
+INSERT INTO Film VALUES (6, 7, 'Rychle a ZbÄ›sile 12: Transormers vracÃ­ Ãºder', 'Clint Eastwood', 159, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
+INSERT INTO Film VALUES (7, 8, 'Harry Potter: Muddle Story', 'ZdenÄ›k TroÅ¡ka', 65, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
+INSERT INTO Film VALUES (8, 6, '8000 MetrÅ¯ nad MoÅ™em', 'Willy Guy', 90, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
+INSERT INTO Film VALUES (9, 4, 'KÃ³d Pravdy', 'JÃ¡chym Hladil', 159, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
+INSERT INTO Film VALUES (10, 6, 'Mars: Voda a Å¾ivot', 'John Geller', 102, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
+INSERT INTO Film VALUES (11, 2, 'Policie Ulanbatar: ZmizenÃ­ jurty', 'Sechuan Jiang', 96, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
+INSERT INTO Film VALUES (12, 1, 'Agent ve Å¡lole 3', 'Sheldon Reynolds', 80, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
 
-INSERT INTO Zamestnanec VALUES (1, NULL, 1, 'Petr', 'Bøíza', 'xbriz00', 'angryturkey', 'Kolejní­ 5, Brno', 666888999);
-INSERT INTO Zamestnanec VALUES (2, 1, 1, 'Lucie', 'Pravdová', 'xprav00', 'angryturkey', 'Purkyòova 16, Brno', 724589659);
-INSERT INTO Zamestnanec VALUES (3, 1, 2, 'Robert', 'Mrùz', 'xmruz00', 'angryturkey', 'Kolejní­ 5, Praha', 765489321);
-INSERT INTO Zamestnanec VALUES (4, 3, 2, 'Jan', 'Lukes', 'xluke00', 'angryturkey', 'Nerudova 12, Praha', 654987321);
-INSERT INTO Zamestnanec VALUES (5, 1, 3, 'Andrea', 'Cibulková', 'xcibu00', 'angryturkey', 'Provaznická 5, Ostrava', 601248923);
-INSERT INTO Zamestnanec VALUES (6, 5, 3, 'Stanislav', 'Mladá½', 'xmlad00', 'angryturkey', 'Horní 16, Ostrava', 741852963);
-INSERT INTO Zamestnanec VALUES (7, 6, 3, 'Lenka', 'Vrbová', 'xvrbo00', 'angryturkey', 'Klegova 5, Ostrava', 753869421);
+INSERT INTO Zamestnanec VALUES (1, NULL, 1, 'Petr', 'BÅ™Ã­za', 'xbriz00', 'angryturkey', 'KolejnÃ­ 5, Brno', 666888999);
+INSERT INTO Zamestnanec VALUES (2, 1, 1, 'Lucie', 'PravdovÃ¡', 'xprav00', 'angryturkey', 'PurkÅˆova 16, Brno', 724589659);
+INSERT INTO Zamestnanec VALUES (3, 1, 2, 'Robert', 'MrÅ¯z', 'xmruz00', 'angryturkey', 'KolejnÃ­ 5, Praha', 765489321);
+INSERT INTO Zamestnanec VALUES (4, 3, 2, 'Jan', 'LukeÂš', 'xluke00', 'angryturkey', 'Nerudova 12, Praha', 654987321);
+INSERT INTO Zamestnanec VALUES (5, 1, 3, 'Andrea', 'CibulkovÃ¡', 'xcibu00', 'angryturkey', 'ProvaznickÃ¡ 5, Ostrava', 601248923);
+INSERT INTO Zamestnanec VALUES (6, 5, 3, 'Stanislav', 'MladÃ½', 'xmlad00', 'angryturkey', 'HornÃ­ 16, Ostrava', 741852963);
+INSERT INTO Zamestnanec VALUES (7, 6, 3, 'Lenka', 'VrbovÃ¡', 'xvrbo00', 'angryturkey', 'Klegova 5, Ostrava', 753869421);
 INSERT INTO Zamestnanec VALUES (8, 6, 3, 'Bohumil', 'Vrtal', 'xvrta00', 'angryturkey', 'Masarykova 7, Ostrava', 621598473);
 
 INSERT INTO Projekce VALUES (1, 2, 1, STR_TO_DATE('01.04.2015 12:30','%d.%m.%Y %T'), STR_TO_DATE('01.04.2015 20:45','%d.%m.%Y %T'));
@@ -232,13 +232,13 @@ INSERT INTO Sedadlo VALUES (29, 3, 9);
 INSERT INTO Sedadlo VALUES (30, 3, 10);
 
 INSERT INTO Klient VALUES (1, 'System', 'System', 'system00', 'asdasd', 21);
-INSERT INTO Klient VALUES (2, 'Radek', 'Filipí­n', 'yfili00', 'asdasd', 18);
-INSERT INTO Klient VALUES (3, 'Nikola', 'Hrubá', 'yhrub00', 'asdasd', 17);
-INSERT INTO Klient VALUES (4, 'Ale¹', 'Rozmazal', 'yrozm00', 'asdasd', 25);
-INSERT INTO Klient VALUES (5, 'Petr', 'Prudí­k', 'yprud00', 'asdasd', 25);
-INSERT INTO Klient VALUES (6, 'Jan', 'Danì›k', 'ydane00', 'asdasd', 22);
-INSERT INTO Klient VALUES (7, 'Petr', 'Uhlíø™', 'yuhli00', 'asdasd', 38);
-INSERT INTO Klient VALUES (8, 'Jiøí­', 'Strejc', 'ystre00', 'asdasd', 52);
+INSERT INTO Klient VALUES (2, 'Radek', 'FilipÃ­n', 'yfili00', 'asdasd', 18);
+INSERT INTO Klient VALUES (3, 'Nikola', 'HrubÃ¡', 'yhrub00', 'asdasd', 17);
+INSERT INTO Klient VALUES (4, 'AleÂšÅ¡', 'Rozmazal', 'yrozm00', 'asdasd', 25);
+INSERT INTO Klient VALUES (5, 'Petr', 'PrudÃ­k', 'yprud00', 'asdasd', 25);
+INSERT INTO Klient VALUES (6, 'Jan', 'DanÄ›k', 'ydane00', 'asdasd', 22);
+INSERT INTO Klient VALUES (7, 'Petr', 'UhlÃ­Å™', 'yuhli00', 'asdasd', 38);
+INSERT INTO Klient VALUES (8, 'JiÅ™Ã­', 'Strejc', 'ystre00', 'asdasd', 52);
 
 INSERT INTO Rezervace VALUES (1, 1, 1, STR_TO_DATE('28.03.2015 17:22', '%d.%m.%Y %T'), 1, 724159489);
 INSERT INTO Rezervace VALUES (2, 2, 4, STR_TO_DATE('28.03.2015 18:45', '%d.%m.%Y %T'), 1, 724159489);
@@ -248,6 +248,6 @@ INSERT INTO Prodej VALUES (1, 2, 1, 139,  STR_TO_DATE('29.03.2015 15:55','%d.%m.
 INSERT INTO Prodej VALUES (2, 3, 2, 139,  STR_TO_DATE('29.03.2015 18:55','%d.%m.%Y %T'));
 INSERT INTO Prodej VALUES (3, 4, 3, 129,  STR_TO_DATE('29.03.2015 21:55','%d.%m.%Y %T'));
 
-INSERT INTO VIP_Klient VALUES (3, 724159489, 'Skácelova 57, Brno', 10, STR_TO_DATE('20.03.2016','%d.%m.%Y'));
+INSERT INTO VIP_Klient VALUES (3, 724159489, 'SkÃ¡celova 57, Brno', 10, STR_TO_DATE('20.03.2016','%d.%m.%Y'));
 
 INSERT INTO Patri VALUES (1, 3);

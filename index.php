@@ -32,7 +32,7 @@
 					if($divide % 3 == 0)
 						echo("<div class='movies'>");
 					echo("<table class='moviesTable'>");
-					echo("<tr><td>IMG</td></tr>");
+					echo("<tr><td style='min-height: 80px'>IMG</td></tr>");
 					echo("<tr><td>" . $row["nazev"] . "</td></tr>");
 					echo("<tr><td>" . $row["delka"] . "minut</td></tr>");
 					echo("</table>");

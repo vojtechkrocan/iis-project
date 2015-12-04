@@ -32,5 +32,6 @@
 			    echo ("DEBUG: Chyba sql: " . $db->error);
 		?>
 	</div>
+	<?php include 'footer.php'; ?>
 </body>
 </html>

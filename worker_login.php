@@ -9,6 +9,27 @@
 	<?php include 'header.php' ?>
 	<div class="content">
 		<h2>Pøihlá¹ení­ pro zamìstnance</h2>
+		<form action="index.php" method="post">
+			<table>
+				<tr>
+					<td>Vá¹ login:</td>
+				</tr>
+				<tr>
+					<td align="center"><input type="text" name="pin" size="17" /></td>
+				</tr>
+				<tr>
+					<td>Heslo:</td>
+				</tr>
+				<tr>
+					<td align="center"><input type="text" name="password" size="17" /></td>
+				</tr>
+
+				<tr>
+					<td align="center" colspan="2" style="padding-top: 10px;"><input type="submit" name="Submit" size="17" /></td>
+				</tr>
+			</table>
+		</form>
 	</div>
+	<?php include 'footer.php'; ?>
 </body>
 </html>
