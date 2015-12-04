@@ -11,18 +11,18 @@
 	<?php require_once 'db_connection.php'; ?>
 	<div class="content">
 		<?php
-			$sql = "SELECT P.cas_zahajeni, S.id_salu, F.id_filmu FROM Film AS F INNER JOIN Projekce AS P INNER JOIN Sal AS S";
+			$sql = "SELECT cas_zahajeni, S.id_salu, F.nazev FROM Projekce AS P INNER JOIN Film AS F INNER JOIN Sal AS S";
 			$result = $db->query($sql);
 			if ($result->num_rows > 0)
 			{
 
 				while($row = $result->fetch_assoc())
 				{
-					echo("<span>");
-					echo("Zahajeni" . $row["P.cas_zahajeni"]);
-					echo("Film: " . $row["F.id_filmu"]);
-					echo("Sal: " . $row["S.id_salu"]);
-					echo("</span>");
+					echo("<span class='program'>");
+					echo("Datum zahajeni: " . $row["cas_zahajeni"]);
+					echo(" Film: " . $row["nazev"]);
+					echo(" Sal: " . $row["id_salu"]);
+					echo("</br></span>");
 				}
 
 			}
