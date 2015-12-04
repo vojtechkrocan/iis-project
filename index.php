@@ -20,32 +20,38 @@
 		<?php require_once 'db_connection.php'; ?>
 		<h2>Nejnovìj¹í filmy</h2>
 		<?php
-			$sql = "SELECT nazev, delka FROM Film ORDER BY id_filmu DESC";
+			$sql = "SELECT nazev, delka FROM Film ORDER BY id_filmu DESC LIMIT 6";
 			//$stmt = $db->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
 			$result = $db->query($sql);
 			if ($result->num_rows > 0)
 			{
-
+				//echo("<div>");
+				$divide = 0;
 				while($row = $result->fetch_assoc())
 				{
-					/*
-					echo("<table class='movie'>");
+					if($divide % 3 == 0)
+						echo("<div class='movies'>");
+					echo("<table class='moviesTable'>");
 					echo("<tr><td>IMG</td></tr>");
-					echo("<tr><td>Nazev filmu: " . $row["nazev"] . "</td></tr>");
-					echo("<tr><td>Delka: " . $row["delka"] . "</td></tr>");
+					echo("<tr><td>" . $row["nazev"] . "</td></tr>");
+					echo("<tr><td>" . $row["delka"] . "minut</td></tr>");
 					echo("</table>");
-					*/
+					if($divide % 3 == 2)
+						echo("</div>");
+					$divide++;
+					/*
 					echo("<span class='movie'>");
 					echo("IMG</br>");
 					echo("Nazev: " . $row["nazev"] . "</br>");
 					echo("Delka: " . $row["delka"] . "</br>");
-					echo("</br></span>");
+					echo("</br></span>");*/
 				}
-
+				//echo("</div>");
 			}
 			else
 			    echo ("DEBUG: Chyba sql: " . $db->error);
 		?>
 	</div>
+	<?php include 'footer.php'; ?>
 </body>
 </html>

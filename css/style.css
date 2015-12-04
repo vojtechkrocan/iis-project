@@ -104,7 +104,6 @@ textarea {
 	margin: 0 0 1em;
 	padding: 0;
 	text-align: right;
-
 }
 
 .navig li {
@@ -171,8 +170,8 @@ textarea {
 	padding-left: 32px;
 	padding-right: 35px;
 	text-decoration: none;
+	color: #fff;
 }
-
 .userAreaBG:hover {
 	background-color: white;
 	color: #ffc423;
@@ -186,22 +185,35 @@ textarea {
 	padding-right: 16px;
     border-top: 5px solid #31A9B8;
 	background-color: #CDCDC0;
+	text-align: center;
 }
 
 table {
-	align: center;
+	text-align: center;
+	display: inline-table;
+	border: 1px solid black;
 }
 
-.movie {
+.moviesTable {
+	height: 230px;
+	width: 200px;
+	margin: 15px;
+	border-radius: 4px;
+}
+.movies {
 	color: #31A9B8;
-	/* height: 60px; */
-	max-width: 35px;
+	/* height: 60px;
+	max-width: 200px; */
 	text-align: center;
-	overflow: hidden;
-	padding: 20px;
-
+	margin: 20px;
 }
 
 .program {
 	color: #31A9B8;
+}
+
+.footer {
+	font-size: 0.7em;
+	text-align: center;
+	color: #000000;
 }
