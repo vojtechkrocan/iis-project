@@ -37,14 +37,14 @@
 					*/
 					echo("<span class='movie'>");
 					echo("IMG</br>");
-					echo("Nazev" . $row["nazev"] . "</br>");
+					echo("Nazev: " . $row["nazev"] . "</br>");
 					echo("Delka: " . $row["delka"] . "</br>");
 					echo("</br></span>");
 				}
 
 			}
 			else
-			    echo ("DEBUG: Chyba od sql: " . $db->error);
+			    echo ("DEBUG: Chyba sql: " . $db->error);
 		?>
 	</div>
 </body>

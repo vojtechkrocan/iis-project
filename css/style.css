@@ -2,7 +2,7 @@ body {
 	font: 16px/1.5 Georgia, Verdana, Arial;
 	margin: 0 auto;
 	width: 800px;
-	color: #CDCDC0;
+	color: white;
 	background-color: #fff;
 }
 
@@ -123,16 +123,16 @@ textarea {
 .menu {
 	font-size: 1.0em;
 	text-align: left;
-	padding-top: 100px;
+	margin-top: 100px;
 	padding-bottom: 10px;
 }
 
-.mainMenu a {
+.menu a {
 	text-decoration: none;
 	border-bottom: none;
 	color: white;
 }
-.mainMenu a:hover {
+.menu a:hover {
 	color: #ffc423;
 }
 
@@ -168,15 +168,14 @@ textarea {
 	text-align: center;
 	padding-top: 12px;
 	padding-bottom: 12px;
-	padding-left: 20px;
-	padding-right: 20px;
+	padding-left: 32px;
+	padding-right: 35px;
+	text-decoration: none;
 }
 
-.userAreaBG a {
-	padding-right: 20px;
-	padding-left: 20px;
-	padding-top: 30px;
-	color: white;
+.userAreaBG:hover {
+	background-color: white;
+	color: #ffc423;
 }
 
 .content {
@@ -186,6 +185,7 @@ textarea {
 	padding-left: 16px;
 	padding-right: 16px;
     border-top: 5px solid #31A9B8;
+	background-color: #CDCDC0;
 }
 
 table {

@@ -11,7 +11,9 @@
 	<?php require_once 'db_connection.php'; ?>
 	<div class="content">
 		<?php
-			$sql = "SELECT cas_zahajeni, S.id_salu, F.nazev FROM Projekce AS P INNER JOIN Film AS F INNER JOIN Sal AS S";
+			$sql = "SELECT DISTINCT P.cas_zahajeni, S.id_salu, F.nazev
+					FROM Projekce P, Film F, Sal S
+					WHERE P.id_salu = S.id_salu AND P.id_filmu = F.id_filmu";
 			$result = $db->query($sql);
 			if ($result->num_rows > 0)
 			{
@@ -27,7 +29,7 @@
 
 			}
 			else
-			    echo ("DEBUG: Chyba od sql: " . $db->error);
+			    echo ("DEBUG: Chyba sql: " . $db->error);
 		?>
 	</div>
 </body>
