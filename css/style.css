@@ -1,3 +1,22 @@
+.topbar {
+	background: rgba(0,0,0,0.86);
+	height: 33px;
+	line-height: 33px;
+	text-align: right;
+	color: #fff;
+	font-size: 0.8em;
+	padding-right: 15px;
+
+}
+.topbar a {
+	text-decoration: none;
+	color: #fff;
+}
+.topbar a:hover {
+	color: #ffc423;
+}
+
+
 body {
 	font: 16px/1.5 Georgia, Verdana, Arial;
 	margin: 0 auto;
@@ -23,10 +42,6 @@ body {
 form th, form td {
 	font-weight: normal;
 	font-family: Verdana, 'Geneva CE', lucida, sans-serif;
-}
-
-form tr {
-	font-size: 0.8em;
 }
 
 form th {
@@ -184,23 +199,27 @@ table {
 
 button
 {
-	width:100%;
-	height:45px;
-	border:0px;
+	width: 100%;
+	height: 35px;
+	border: 0px;
 	background:rgba(12,45,78,11);
 	background:-moz-linear-gradient(top, #595959 , #515151);
 	border-radius:3px;
 	box-shadow: 1px 1px 1px rgba(1,0,0,0.2);
 	color:#f9f9f9;
 	font-family:Verdana, Geneva, sans-serif;
-	font-size:18px;
+	font-size: 1.0em;
 	font-weight:bolder;
 	text-transform:uppercase;
+	cursor: pointer;
 }
 button:active
 {
 	position:relative;
 	top:1px;
+}
+button:hover {
+	color: #ffc423;
 }
 
 .moviesTable {
@@ -213,9 +232,25 @@ button:active
 }
 
 input {
-	height: 30px;
+	height: 35px;
 	width: 200px;
 	border-radius: 3px;
+	font-size: 1.0em;
+}
+
+.result td {
+	min-width: 120px;
+	min-height: 40px;
+	font-size: 0.8em;
+	text-overflow: ellipsis;
+
+}
+.result tr {
+	border: 1px solid #fff;
+}
+
+.result table {
+	border: 1px solid #fff;
 }
 
 .footer {
@@ -228,7 +263,9 @@ input {
 	text-align: center;
 	background-image: url('../img/header.png');
 }
-
 .footer a {
 	color: #fff;
+}
+.footer a:hover {
+	color: #ffc423;
 }

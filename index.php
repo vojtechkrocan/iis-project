@@ -9,16 +9,11 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <!-- TODO:
- - zmenit worker check RIGHTS
- - pridat user
- - prihlaseni uzivatele
+ - pridat oddelovace pod vyhledavani
  - predelat DB - klient pridat adresu; poresit rezervace
- - zakazat stranky neprihlasenemu uzivateli
- - predelat tlacitka
  - phpeeckem nainsertovat sedadla
  - do programu kalendar - jinak zobrazovat dnes, zitra, pozitri...a pak kalendar
  - pozadi
- - join a shoda jmen -> alias AS
  - pridat vyjimku na system
 -->
 <body>
@@ -26,7 +21,6 @@
 		<h2>Nejnovìj¹í filmy</h2>
 		<?php
 			$sql = "SELECT nazev, delka, autor FROM Film ORDER BY id_filmu DESC LIMIT 6";
-			//$stmt = $db->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
 			$result = $db->query($sql);
 			if ($result->num_rows > 0)
 			{

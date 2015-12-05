@@ -13,9 +13,8 @@
 	<div class="content" >
 		<form method="post">
 			<table align="center" border="0">
-			<!-- TODO: input na hledani - pod to tabulku s pevnyma rozmerama a tu naplnit klientama a tam nabizet editaci nebo smazani-->
 				<tr>
-					<td><input type="text" name="search-word" placeholder="Pøihla¹ovací jméno" height="150" width="230" required /></td>
+					<td><input type="text" name="search-word" placeholder="Hledaná fráze" required /></td>
 					<td><button type="submit" name="btn-search" style="margin-left: 25px;">Hledat klienta</button></td>
 				</tr>
 			</table>
@@ -28,23 +27,34 @@
 				$sql = "SELECT *
 						FROM Klient
 						WHERE
-						(
 							username LIKE '%" . $search_word . "%'
 							OR jmeno LIKE '%" . $search_word . "%'
-							OR prijmeni LIKE '%" . $search_word . "%'
-
-						)";
-				var_dump($sql);
+							OR prijmeni LIKE '%" . $search_word . "%'";
 				$result = $db->query($sql);
 				if ($result->num_rows > 0)
 				{
-					echo("<table><td>Jméno</td><td>Pøíjmení</td><td>Pøihla¹ovací jméno</td><td>Vìk</td><td>Editovat</td><td>Odstranit</td></tr>");
+					echo("<div class='result'>");
+					echo("<table align='center'>
+						<tr style='font-size: 1.3em;'>
+						<td>Jméno</td>
+						<td>Pøíjmení</td>
+						<td>Pøihla¹ovací jméno</td>
+						<td>Vìk</td>
+						<td>Editovat</td>
+						<td>Odstranit</td>
+						</tr>");
 
 					while($row = $result->fetch_assoc())
 					{
-						echo("<tr><td>" . $row["jmeno"] . "</td><td>" . $row["prijmeni"] . "</td><td>" . $row["username"] . "</td><td>" . $row["vek"] . " let</td></tr>");
+						echo("<tr>
+							<td>" . $row["jmeno"] . "</td>
+							<td>" . $row["prijmeni"] . "</td>
+							<td>" . $row["username"] . "</td>
+							<td>" . $row["vek"] . " let</td>
+							</tr>");
 					}
 					echo("</table>");
+					echo("</div>");
 				}
 				else
 				{
