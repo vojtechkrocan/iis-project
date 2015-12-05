@@ -1,12 +1,12 @@
 <?php
-	if( $userLogged == false )
+	if( $_userLogged_ == false )
 	{
 		?>
 		<script>alert('Pro pøístup do této sekce se musíte pøihlásit.');</script>
 		<?php
 		header("Location: worker_login.php");
 	}
-	if( $userRights < 1 )
+	if( $_userRights_ < 1 )
 	{
 		?>
 		<script>alert('Nemáte práva k pøístupu do této sekce.');</script>

@@ -39,7 +39,13 @@
 				</tr>
 			</table>
 		</form>
-
+		<?php
+			if( isset($_POST['btn-search']) )
+			{
+				$username = $_POST['username'];
+				// TODO: dodelat search
+			}
+		?>
 	</div>
 	<?php include 'footer.php'; ?>
 </body>

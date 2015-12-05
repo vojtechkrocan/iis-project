@@ -1,13 +1,13 @@
 <!-- tohle smazat -->
 <?php
-	var_dump($userLogged);
-	var_dump($userRights);
+	var_dump($_userLogged_);
+	var_dump($_userRights_);
 ?>
 <div class="mainMenu">
 		<div class="userArea">
 			<?php
 
-				if( $userLogged )
+				if( $_userLogged_ )
 				{
 					?>
 						<button type="button" onclick="window.location='logout.php';" style="width: auto">Odhlásit se</button>
@@ -30,7 +30,7 @@
 			<!-- Zobrazit jen kdyz je admin
 			<a href="internal.php" class="menuItem">Interní</a> -->
 			<?php
-				if( $userRights > 0 )
+				if( $_userRights_ > USER_RIGHTS )
 				{
 					?>
 						<a href="internal.php" class="menuItem">Interní</a>

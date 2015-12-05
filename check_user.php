@@ -1,5 +1,5 @@
 <?php
-	if( $userLogged == false )
+	if( $_userLogged_ == false )
 	{
 		?>
 		<script>alert('Pro pøístup do této sekce se musíte pøihlásit.');</script>

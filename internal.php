@@ -57,7 +57,7 @@
 
 			<!-- tohle uz ma videt jen ten, kdo ma jako nadrizeneho NULL -->
 			<?php
-				if( $userRights == ADMIN_RIGHTS )
+				if( $_userRights_ == ADMIN_RIGHTS )
 				{
 					?>
 					<tr>
