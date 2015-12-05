@@ -1,25 +1,6 @@
 <?php
-	session_start();
 	require_once 'core.php';
 	require_once 'check_worker.php';
-
-	$sql = "SELECT jmeno, prijmeni, username, vek FROM Klient";
-	//$stmt = $db->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
-	$result = $db->query($sql);
-	if ($result->num_rows > 0)
-	{
-		while($row = $result->fetch_assoc())
-		{
-			echo("<table class='moviesTable'>");
-			echo("<tr><td>Jméno: " . $row["jmeno"] . "</td></tr>");
-			echo("<tr><td>Pøíjmení: " . $row["prijmeni"] . "</td></tr>");
-			echo("<tr><td>Username: " . $row["username"] . "</td></tr>");
-			echo("<tr><td>Vìk:" . $row["vek"] . " let</td></tr>");
-			echo("</table>");
-		}
-	}
-	else
-		echo ("Doslo k SQL chybe: " . $db->error);
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
@@ -43,7 +24,25 @@
 			if( isset($_POST['btn-search']) )
 			{
 				$username = $_POST['username'];
-				// TODO: dodelat search
+				$sql = "SELECT jmeno, prijmeni, username, vek
+						FROM Klient
+						WHERE username = '" . $username . "'";
+				var_dump($sql);
+				$result = $db->query($sql);
+				if ($result->num_rows > 0)
+				{
+					while($row = $result->fetch_assoc())
+					{
+						echo("<table class=''>");
+						echo("<tr><td>Jméno: " . $row["jmeno"] . "</td></tr>");
+						echo("<tr><td>Pøíjmení: " . $row["prijmeni"] . "</td></tr>");
+						echo("<tr><td>Username: " . $row["username"] . "</td></tr>");
+						echo("<tr><td>Vìk:" . $row["vek"] . " let</td></tr>");
+						echo("</table>");
+					}
+				}
+				else
+					echo ("Doslo k SQL chybe: " . $db->error);
 			}
 		?>
 	</div>
