@@ -1,3 +1,34 @@
+<?php
+	session_start();
+	require_once 'db_connection.php';
+	if( isset($_SESSION['user']) != "" ||  isset($_SESSION['worker']) != "" )
+	{
+		echo("USER: ");
+		var_dump($_SESSION['user']);
+		echo("WORKER: ");
+		var_dump($_SESSION['worker']);
+		//header("Location: index.php");
+	}
+	if( isset($_POST['btn-login']) )
+	{
+		$username = $_POST['username'];
+		$upass = $_POST['pass'];
+		$sql = "SELECT * FROM Zamestnanec WHERE login = '" . $username . "' AND heslo = '" .$upass . "'";;
+		$result = $db->query($sql);
+		if( $result->num_rows == 1 )
+		{
+			$row = $result->fetch_assoc();
+			$_SESSION['worker'] = $row['id_zamestnance'];
+			//header("Location: index.php");
+		}
+		else
+		{
+			?>
+			<script>alert('©patné pøihla¹ovací údaje.');</script>
+			<?php
+		}
+	}
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
 <head>
@@ -7,7 +38,6 @@
 </head>
 <body>
 	<?php include 'header.php' ?>
-	<?php require_once 'db_connection.php'; ?>
 	<div class="content">
 		<h2>Pøihlá¹ení­ pro zamìstnance</h2>
 		<form action="index.php" method="post">
@@ -16,17 +46,17 @@
 					<td align="left">Vá¹ login:</td>
 				</tr>
 				<tr>
-					<td align="center"><input type="text" name="pin" size="17" /></td>
+					<td><input type="text" name="username" placeholder="Pøihla¹ovací jméno" required /></td>
 				</tr>
 				<tr>
 					<td align="left">Heslo:</td>
 				</tr>
 				<tr>
-					<td align="center"><input type="text" name="password" size="17" /></td>
+					<td><input type="password" name="pass" placeholder="Heslo" required /></td>
 				</tr>
 
 				<tr>
-					<td align="center" colspan="2" style="padding-top: 10px;"><input type="submit" name="Submit" size="17" /></td>
+					<td><button type="submit" name="btn-login">Pøihlásit se</button></td>
 				</tr>
 			</table>
 		</form>

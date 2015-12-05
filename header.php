@@ -14,6 +14,9 @@
 			<a href="index.php" class="menuItem">Domù</a>
 			<a href="program.php" class="menuItem">Program</a>
 			<a href="cinemas.php" class="menuItem">Kina</a>
+			<a href="contact.php" class="menuItem">Contact</a>
+			<!-- Zobrazit jen kdyz je admin -->
+			<a href="internal.php" class="menuItem">Interní</a>
 		</div>
 	</div>
 </div>

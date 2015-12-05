@@ -6,8 +6,10 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<?php include 'header.php' ?>
-	<?php require_once 'db_connection.php'; ?>
+	<?php include 'header.php';
+		require_once 'db_connection.php';
+		require_once 'user_check.php';
+	 ?>
 	<div class="content">
 		<?php
 			$sql = "SELECT nazev, adresa

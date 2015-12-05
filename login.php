@@ -1,29 +1,37 @@
 <?php
+	session_save_path("tmp/");
 	session_start();
 	require_once 'db_connection.php';
-
-	if(isset($_SESSION['user'])!="")
+	/*
+	if( isset($_SESSION['user']) != "" or  isset($_SESSION['worker']) != "" )
 	{
-	 header("Location: home.php");
-	}
-		if(isset($_POST['btn-login']))
+		header("Location: index.php");
+	}*/
+	if( isset($_POST['btn-login']) )
+	{
+		$username = $_POST['username'];
+		$upass = $_POST['pass'];
+		$sql = "SELECT * FROM Klient WHERE username = '" . $username . "' AND heslo = '" .$upass . "'";
+		$result = $db->query($sql);
+		if( $result->num_rows == 1 )
 		{
-			$email = mysql_real_escape_string($_POST['email']);
-			$upass = mysql_real_escape_string($_POST['pass']);
-			$res=mysql_query("SELECT * FROM Zakaznik WHERE username='$username'");
-			$row=mysql_fetch_array($res);
-			if($row['password']==md5($upass))
-			{
-				$_SESSION['user'] = $row['user_id'];
-				header("Location: index.php");
-			}
-			else
-			{
-				?>
-				<script>alert('wrong details');</script>
-				<?php
-			 }
+			$row = $result->fetch_assoc();
+			$_SESSION['user'] = $row['id_klienta'];
+			//setcookie('logged', $row['id_klienta'], time() + (86400 * 1), "/");
+			//header("Location: index.php");
+		}
+		else
+		{
+			//setcookie('logged', '', time() - 3600, "/");
+			?>
+			<script>alert('©patné pøihla¹ovací údaje.');</script>
+			<?php
+		}
 	}
+	echo("USER: ");
+	var_dump($_SESSION['user']);
+	echo("WORKER: ");
+	var_dump($_SESSION['worker']);
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
@@ -35,7 +43,6 @@
 
 <body>
 	<?php include 'header.php' ?>
-	<?php require_once 'db_connection.php'; ?>
 	<div class="content">
 		<h2>Pøihlá¹ení</h2>
 		<div id="login-form">
@@ -48,7 +55,7 @@
 						<td><input type="password" name="pass" placeholder="Heslo" required /></td>
 					</tr>
 					<tr>
-						<td><button type="submit" name="btn-login" >Pøihlásit se</button></td>
+						<td><button type="submit" name="btn-login">Pøihlásit se</button></td>
 					</tr>
 				</table>
 			</form>

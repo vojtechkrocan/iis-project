@@ -1,3 +1,11 @@
+<?php
+	session_save_path("tmp/");
+	session_start();
+	echo("USER: ");
+	var_dump($_SESSION['user']);
+	echo("WORKER: ");
+	var_dump($_SESSION['worker']);
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
 <head>
@@ -18,6 +26,7 @@
 	<?php
 		include 'header.php';
 		require_once 'db_connection.php';
+		//require_once 'user_check.php';
 	?>
 	<div class="content">
 		<h2>Nejnovìj¹í filmy</h2>

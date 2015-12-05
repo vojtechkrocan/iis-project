@@ -182,6 +182,28 @@ table {
 	color: #00c5cd;
 }
 
+button
+{
+	width:100%;
+	height:45px;
+	border:0px;
+	background:rgba(12,45,78,11);
+	background:-moz-linear-gradient(top, #595959 , #515151);
+	border-radius:3px;
+	box-shadow: 1px 1px 1px rgba(1,0,0,0.2);
+	color:#f9f9f9;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:18px;
+	font-weight:bolder;
+	text-transform:uppercase;
+}
+button:active
+{
+	position:relative;
+	top:1px;
+}
+
+/*
 table tr td button
 {
 	width:100%;
@@ -203,6 +225,8 @@ table tr td button:active
 	position:relative;
 	top:1px;
 }
+*/
+
 
 .moviesTable {
 	height: 230px;
