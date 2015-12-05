@@ -43,13 +43,10 @@
 				<td><h2>Rezervaèní sekce</h2></td>
 			</tr>
 			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='';">Najít rezervaci</button></td>
+				<td><button type="submit" name="btn-login" onclick="window.location='search_reservation.php';">Najít rezervaci</button></td>
 			</tr>
 			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='';">Pøidat rezervaci</button></td>
-			</tr>
-			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='';">Vypsat rezervace</button></td>
+				<td><button type="submit" name="btn-login" onclick="window.location='add_reservation.php';">Pøidat rezervaci</button></td>
 			</tr>
 			<tr>
 				<td><h2>Projekèní sekce</h2></td>
@@ -58,7 +55,7 @@
 				<td><button type="submit" name="btn-login" onclick="window.location='';">Pøidat projekci</button></td>
 			</tr>
 			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='';">Hledat projekce</button></td>
+				<td><button type="submit" name="btn-login" onclick="window.location='';">Hledat projekci</button></td>
 			</tr>
 
 			<!-- tohle uz ma videt jen ten, kdo ma jako nadrizeneho NULL -->

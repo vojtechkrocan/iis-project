@@ -19,7 +19,7 @@ body {
 /***** FORM *****/
 form th, form td {
 	font-weight: normal;
-	font-family: 'Open Sans', Verdana, 'Geneva CE', lucida, sans-serif;
+	font-family: Verdana, 'Geneva CE', lucida, sans-serif;
 }
 
 form tr {
