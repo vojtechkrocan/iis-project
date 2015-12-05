@@ -1,22 +1,42 @@
-<!-- Main menu -->
+<!-- tohle smazat -->
+<?php
+	var_dump($userLogged);
+	var_dump($userRights);
+?>
 <div class="mainMenu">
 		<div class="userArea">
-			<!-- tady phpeckem udelat prihlasit / odhlasit -->
-			<a href="login.php" class="bigButton">Pøihlásit se</a>
-			<!-- TODO odhlasit se -->
+			<?php
+
+				if( $userLogged )
+				{
+					?>
+						<button type="button" onclick="window.location='logout.php';" style="width: auto">Odhlásit se</button>
+					<?php
+				}
+				else
+				{
+					?>
+						<button type="button" onclick="window.location='login.php';" style="width: auto">Pøihlásit se</button>
+					<?php
+				}
+			?>
 		</div>
-	<!-- TODO img dat jako background
-	<div>
-		<img src="img/header.jpg" class="headerImg" align="center">
-	</div> -->
 	<div class="menu">
 		<div class="menuBG">
 			<a href="index.php" class="menuItem">Domù</a>
 			<a href="program.php" class="menuItem">Program</a>
 			<a href="cinemas.php" class="menuItem">Kina</a>
 			<a href="contact.php" class="menuItem">Kontakt</a>
-			<!-- Zobrazit jen kdyz je admin -->
-			<a href="internal.php" class="menuItem">Interní</a>
+			<!-- Zobrazit jen kdyz je admin
+			<a href="internal.php" class="menuItem">Interní</a> -->
+			<?php
+				if( $userRights > 0 )
+				{
+					?>
+						<a href="internal.php" class="menuItem">Interní</a>
+					<?php
+				}
+			?>
 		</div>
 	</div>
 </div>

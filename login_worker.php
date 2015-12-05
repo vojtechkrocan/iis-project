@@ -1,25 +1,22 @@
 <?php
-	session_start();
-	require_once 'db_connection.php';
-	if( isset($_SESSION['user']) != "" ||  isset($_SESSION['worker']) != "" )
-	{
-		echo("USER: ");
-		var_dump($_SESSION['user']);
-		echo("WORKER: ");
-		var_dump($_SESSION['worker']);
-		//header("Location: index.php");
-	}
+	require_once 'core.php';
+
 	if( isset($_POST['btn-login']) )
 	{
 		$username = $_POST['username'];
 		$upass = $_POST['pass'];
-		$sql = "SELECT * FROM Zamestnanec WHERE login = '" . $username . "' AND heslo = '" .$upass . "'";;
+		$sql = "SELECT * FROM Zamestnanec WHERE login = '" . $username . "' AND heslo = '" .$upass . "'";
 		$result = $db->query($sql);
 		if( $result->num_rows == 1 )
 		{
 			$row = $result->fetch_assoc();
-			$_SESSION['worker'] = $row['id_zamestnance'];
-			//header("Location: index.php");
+			$_SESSION['user'] = $row['id_zamestnance'];
+			// Rights
+			if( $row['id_sef'] == NULL )
+				$_SESSION['rights'] = ADMIN_RIGHTS;
+			else
+				$_SESSION['rights'] = WORKER_RIGHTS;
+			header("Location: index.php");
 		}
 		else
 		{
@@ -37,11 +34,10 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<?php include 'header.php' ?>
 	<div class="content">
 		<h2>Pøihlá¹ení­ pro zamìstnance</h2>
-		<form action="index.php" method="post">
-			<table>
+		<form method="post">
+			<table align="center">
 				<tr>
 					<td align="left">Vá¹ login:</td>
 				</tr>
@@ -56,7 +52,7 @@
 				</tr>
 
 				<tr>
-					<td><button type="submit" name="btn-login">Pøihlásit se</button></td>
+					<td style="padding-top: 20px"><button type="submit" name="btn-login">Pøihlásit se</button></td>
 				</tr>
 			</table>
 		</form>

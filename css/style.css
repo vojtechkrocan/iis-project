@@ -2,7 +2,7 @@ body {
 	font: 16px/1.5 Georgia, Verdana, Arial;
 	margin: 0 auto;
 	width: 800px;
-	color: white;
+	color: #000000;
 	background-color: #e3e3e3;
 }
 
@@ -88,13 +88,12 @@ h2 {
 
 .link {
 	text-decoration: none;
+	color: #000000;
 }
 
 /***** MENU *****/
 .mainMenu {
 	background-image: url('../img/header.png');
-	/* background-color: #CF3721; */
-	/* min-height: 170px; */
 	font-family: 'Open Sans', Verdana, 'Geneva CE', lucida, sans-serif;
 }
 
@@ -175,10 +174,8 @@ h2 {
 	color: #ffc423;
 }
 
-/***** TABLE *****/
 table {
 	text-align: center;
-	display: inline-table;
 	color: #00c5cd;
 }
 
@@ -203,40 +200,21 @@ button:active
 	top:1px;
 }
 
-/*
-table tr td button
-{
-	width:100%;
-	height:45px;
-	border:0px;
-	background:rgba(12,45,78,11);
-	background:-moz-linear-gradient(top, #595959 , #515151);
-	border-radius:3px;
-	box-shadow: 1px 1px 1px rgba(1,0,0,0.2);
-	color:#f9f9f9;
-	font-family:Verdana, Geneva, sans-serif;
-	font-size:18px;
-	font-weight:bolder;
-	text-transform:uppercase;
-}
-
-table tr td button:active
-{
-	position:relative;
-	top:1px;
-}
-*/
-
-
 .moviesTable {
 	height: 230px;
 	width: 200px;
 	margin: 15px;
 	border-radius: 2px;
 	border: 1px solid #fff;
+	display: inline-table;
 }
 
-/***** FOOTER *****/
+input {
+	height: 30px;
+	width: 200px;
+	border-radius: 3px;
+}
+
 .footer {
 	font-size: 0.62em;
 	font-family: 'Open Sans', Verdana, 'Geneva CE', lucida, sans-serif;

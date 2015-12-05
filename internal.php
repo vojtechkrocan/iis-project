@@ -1,4 +1,6 @@
 <?php
+	require_once 'core.php';
+	require_once 'check_worker.php';
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
@@ -8,69 +10,71 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<?php
-		include 'header.php';
-		require_once 'db_connection.php';
-		//require_once 'worker_check.php';
-	?>
 	<div class="content" >
 		<table align="center" border="0">
 			<tr>
 				<td><h2>Prodejní sekce</h2></td>
 			</tr>
 			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='sell.php';">Prodat lístek</button></td>
+				<td><button type="button" name="btn-login" onclick="window.location='sell.php';">Prodat lístek</button></td>
 			</tr>
 			<tr>
 				<td><h2>Klientská sekce</h2></td>
 			</tr>
 			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='search_user.php';">Najít klienta</button></td>
+				<td><button type="submit" onclick="window.location='search_user.php';">Najít klienta</button></td>
 			</tr>
 			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='register_user.php';">Registrovat nového klienta</button></td>
+				<td><button type="submit" onclick="window.location='register_user.php';">Registrovat nového klienta</button></td>
 			</tr>
 			<tr>
 				<td><h2>Filmová sekce</h2></td>
 			</tr>
 			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='search_movie.php';">Najít film</button></td>
+				<td><button type="submit" onclick="window.location='search_movie.php';">Najít film</button></td>
 			</tr>
 			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='add_movie.php';">Pøidat nový film</button></td>
+				<td><button type="submit" onclick="window.location='add_movie.php';">Pøidat nový film</button></td>
 			</tr>
 			<tr>
 				<td><h2>Rezervaèní sekce</h2></td>
 			</tr>
 			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='search_reservation.php';">Najít rezervaci</button></td>
+				<td><button type="submit" onclick="window.location='search_reservation.php';">Najít rezervaci</button></td>
 			</tr>
 			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='add_reservation.php';">Pøidat rezervaci</button></td>
+				<td><button type="submit" onclick="window.location='add_reservation.php';">Pøidat rezervaci</button></td>
 			</tr>
 			<tr>
 				<td><h2>Projekèní sekce</h2></td>
 			</tr>
 			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='';">Pøidat projekci</button></td>
+				<td><button type="submit" onclick="window.location='';">Pøidat projekci</button></td>
 			</tr>
 			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='';">Hledat projekci</button></td>
+				<td><button type="submit" onclick="window.location='';">Hledat projekci</button></td>
 			</tr>
 
 			<!-- tohle uz ma videt jen ten, kdo ma jako nadrizeneho NULL -->
-			<tr>
-				<td><h2>Administraèní sekce</h2></td>
-			</tr>
-			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='register_worker.php';">Pøidat zamìstnance</button></td>
-			</tr>
-			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='search_worker.php';">Hledat zamìstnance</button></td>
-			</tr>
-			<tr>
-				<td><button type="submit" name="btn-login" onclick="window.location='search_worker.php';">Zjistit tr¾bu</button></td>
-			</tr>
+			<?php
+				if( $userRights == ADMIN_RIGHTS )
+				{
+					?>
+					<tr>
+						<td><h2>Administraèní sekce</h2></td>
+					</tr>
+					<tr>
+						<td><button type="submit" onclick="window.location='register_worker.php';">Pøidat zamìstnance</button></td>
+					</tr>
+					<tr>
+						<td><button type="submit" onclick="window.location='search_worker.php';">Hledat zamìstnance</button></td>
+					</tr>
+					<tr>
+						<td><button type="submit" onclick="window.location='search_worker.php';">Zjistit tr¾bu</button></td>
+					</tr>
+					<?php
+				}
+			?>
 		</table>
 	</div>
 	<?php include 'footer.php'; ?>

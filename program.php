@@ -1,3 +1,6 @@
+<?php
+	require_once 'core.php';
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
 <head>
@@ -7,8 +10,6 @@
 </head>
 
 <body>
-	<?php include 'header.php' ?>
-	<?php require_once 'db_connection.php'; ?>
 	<div class="content">
 		<h2>Program</h2>
 		<?php
@@ -21,11 +22,11 @@
 
 				while($row = $result->fetch_assoc())
 				{
-					echo("<span class='program'>");
-					echo("Datum zahajeni: " . $row["cas_zahajeni"]);
-					echo(" Film: " . $row["nazev"]);
-					echo(" Sal: " . $row["id_salu"]);
-					echo("</br></span>");
+					echo("<table >");
+					echo("<tr><td>Zahájení:" . $row["cas_zahajeni"] . "</td></tr>");
+					echo("<tr><td>Sál: " . $row["id_salu"] . "</td></tr>");
+					echo("<tr><td>Film: " . $row["nazev"] . "</td></tr>");
+					echo("</table>");
 				}
 
 			}

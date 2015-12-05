@@ -1,12 +1,14 @@
 <?php
-	session_save_path("tmp/");
-	session_start();
-	require_once 'db_connection.php';
-	/*
-	if( isset($_SESSION['user']) != "" or  isset($_SESSION['worker']) != "" )
+	require_once 'core.php';
+
+	// pokud uz je $_SESSION['user'], tak presmeruj na index
+	if( $userLogged )
 	{
-		header("Location: index.php");
-	}*/
+		?>
+		<script>alert('Ji¾ jste pøihlá¹en.');</script>
+		<?php
+	}
+
 	if( isset($_POST['btn-login']) )
 	{
 		$username = $_POST['username'];
@@ -17,23 +19,16 @@
 		{
 			$row = $result->fetch_assoc();
 			$_SESSION['user'] = $row['id_klienta'];
-			//setcookie('logged', $row['id_klienta'], time() + (86400 * 1), "/");
-			//header("Location: index.php");
+			$_SESSION['rights'] = USER_RIGHTS;
+			header("Location: index.php");
 		}
 		else
 		{
-			//setcookie('logged', '', time() - 3600, "/");
 			?>
 			<script>alert('©patné pøihla¹ovací údaje.');</script>
 			<?php
 		}
 	}
-	/*
-	echo("USER: ");
-	var_dump($_SESSION['user']);
-	echo("WORKER: ");
-	var_dump($_SESSION['worker']);
-	*/
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
@@ -44,26 +39,29 @@
 </head>
 
 <body>
-	<?php include 'header.php' ?>
 	<div class="content">
 		<h2>Pøihlá¹ení</h2>
-		<div id="login-form">
 			<form method="post">
 				<table align="center" width="30%" border="0">
 					<tr>
-						<td><input type="text" name="username" placeholder="Pøihla¹ovací jméno" required /></td>
+						<td><label for="username">Pøihla¹ovací jméno</label></td>
 					</tr>
 					<tr>
-						<td><input type="password" name="pass" placeholder="Heslo" required /></td>
+						<td><input type="text" name="username" placeholder="Pøihla¹ovací jméno" id="username" required /></td>
 					</tr>
 					<tr>
-						<td><button type="submit" name="btn-login">Pøihlásit se</button></td>
+						<td><label for="pass">Heslo</label></td>
+					</tr>
+					<tr>
+						<td><input type="password" name="pass" placeholder="Heslo" id="pass" required /></td>
+					</tr>
+					<tr>
+						<td style="padding-top: 20px"><button type="submit" name="btn-login">Pøihlásit se</button></td>
 					</tr>
 				</table>
 			</form>
-		</div>
 		<div style="padding-top: 50px;">
-			<a href="worker_login.php" class="bigButton">Pøihlá¹ení pro zamìstnance</a>
+			<button type="button" onclick="window.location='login_worker.php';" style="width: auto">Pøihlá¹ení pro zamìstnance</button>
 		</div>
 	</div>
 	<?php include 'footer.php'; ?>

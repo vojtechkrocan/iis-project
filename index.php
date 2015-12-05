@@ -1,12 +1,5 @@
 <?php
-	session_save_path("tmp/");
-	session_start();
-	/*
-	echo("USER: ");
-	var_dump($_SESSION['user']);
-	echo("WORKER: ");
-	var_dump($_SESSION['worker']);
-	*/
+	require_once 'core.php';
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
@@ -16,24 +9,23 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <!-- TODO:
+ - zmenit worker check RIGHTS
+ - pridat user
  - prihlaseni uzivatele
- - registrace uz.
- - zakazat stranky neprihlasenemu uzovateli
+ - predelat DB - klient pridat adresu; poresit rezervace
+ - zakazat stranky neprihlasenemu uzivateli
  - predelat tlacitka
  - phpeeckem nainsertovat sedadla
  - do programu kalendar - jinak zobrazovat dnes, zitra, pozitri...a pak kalendar
  - pozadi
+ - join a shoda jmen -> alias AS
+ - pridat vyjimku na system
 -->
 <body>
-	<?php
-		include 'header.php';
-		require_once 'db_connection.php';
-		//require_once 'user_check.php';
-	?>
 	<div class="content">
 		<h2>Nejnovìj¹í filmy</h2>
 		<?php
-			$sql = "SELECT nazev, delka FROM Film ORDER BY id_filmu DESC LIMIT 6";
+			$sql = "SELECT nazev, delka, autor FROM Film ORDER BY id_filmu DESC LIMIT 6";
 			//$stmt = $db->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
 			$result = $db->query($sql);
 			if ($result->num_rows > 0)
@@ -43,10 +35,11 @@
 				{
 					if($divide % 3 == 0)
 						echo("<div class='movies'>");
-					echo("<table class='moviesTable'>");
+					echo("<table class='moviesTable' >");
+					//echo("<tr><td><span class='description'>" . $row["Zanr.nazev"] . "</span></td></tr>");
 					echo("<tr><td height='230px'><img src='img/movies/asd.jpg' width='100%' height='100%'></td></tr>");
 					echo("<tr><td height='45px'><span class=''>" . $row["nazev"] . "</span></td></tr>");
-					echo("<tr><td><span class='description'>" . $row["delka"] . " minut</span></td></tr>");
+					echo("<tr><td><span class='description'>Délka: " . $row["delka"] . " minut</span></td></tr>");
 					echo("</table>");
 					if($divide % 3 == 2)
 						echo("</div>");

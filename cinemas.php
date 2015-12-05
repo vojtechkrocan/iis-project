@@ -1,3 +1,6 @@
+<?php
+	require_once 'core.php';
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
 <head>
@@ -6,13 +9,9 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<?php include 'header.php';
-		require_once 'db_connection.php';
-		require_once 'user_check.php';
-	 ?>
 	<div class="content">
 		<?php
-			$sql = "SELECT nazev, adresa
+			$sql = "SELECT nazev, adresa, telefoni_cislo
 					FROM Kino";
 			$result = $db->query($sql);
 			if ($result->num_rows > 0)
@@ -22,7 +21,9 @@
 				{
 					echo("<div>");
 					echo("<h2>" . $row["nazev"] . "</h2>");
-					echo("<span class='description'>" . $row["adresa"] . "</span>");
+					echo("<div class='description'>" . $row["adresa"] . "</div>");
+					echo("<div class='description'>Kontakt: " . $row["telefoni_cislo"] . "</div>");
+					// saly
 					echo("</div>");
 				}
 				echo("</div>");

@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	session_destroy();
+	require_once 'core.php';
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
 <head>
@@ -7,10 +12,9 @@
 </head>
 
 <body>
-	<?php include 'header.php' ?>
-	<?php require_once 'db_connection.php'; ?>
 	<div class="content">
 		<h2>Odhlá¹ení probìhlo úspì¹nì</h2>
+		<button type="button" onclick="window.location='login.php';" style="width: auto">Nové pøihlá¹ení</button>
 	</div>
 	<?php include 'footer.php'; ?>
 </body>
