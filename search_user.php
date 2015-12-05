@@ -15,7 +15,7 @@
 			<table align="center" border="0">
 			<!-- TODO: input na hledani - pod to tabulku s pevnyma rozmerama a tu naplnit klientama a tam nabizet editaci nebo smazani-->
 				<tr>
-					<td><input type="text" name="username" placeholder="Pøihla¹ovací jméno" height="150" width="230" required /></td>
+					<td><input type="text" name="search-word" placeholder="Pøihla¹ovací jméno" height="150" width="230" required /></td>
 					<td><button type="submit" name="btn-search" style="margin-left: 25px;">Hledat klienta</button></td>
 				</tr>
 			</table>
@@ -23,26 +23,34 @@
 		<?php
 			if( isset($_POST['btn-search']) )
 			{
-				$username = $_POST['username'];
-				$sql = "SELECT jmeno, prijmeni, username, vek
+				$search_word = "";
+				$search_word = $_POST['search-word'];
+				$sql = "SELECT *
 						FROM Klient
-						WHERE username = '" . $username . "'";
+						WHERE
+						(
+							username LIKE '%" . $search_word . "%'
+							OR jmeno LIKE '%" . $search_word . "%'
+							OR prijmeni LIKE '%" . $search_word . "%'
+
+						)";
 				var_dump($sql);
 				$result = $db->query($sql);
 				if ($result->num_rows > 0)
 				{
+					echo("<table><td>Jméno</td><td>Pøíjmení</td><td>Pøihla¹ovací jméno</td><td>Vìk</td><td>Editovat</td><td>Odstranit</td></tr>");
+
 					while($row = $result->fetch_assoc())
 					{
-						echo("<table class=''>");
-						echo("<tr><td>Jméno: " . $row["jmeno"] . "</td></tr>");
-						echo("<tr><td>Pøíjmení: " . $row["prijmeni"] . "</td></tr>");
-						echo("<tr><td>Username: " . $row["username"] . "</td></tr>");
-						echo("<tr><td>Vìk:" . $row["vek"] . " let</td></tr>");
-						echo("</table>");
+						echo("<tr><td>" . $row["jmeno"] . "</td><td>" . $row["prijmeni"] . "</td><td>" . $row["username"] . "</td><td>" . $row["vek"] . " let</td></tr>");
 					}
+					echo("</table>");
 				}
 				else
-					echo ("Doslo k SQL chybe: " . $db->error);
+				{
+
+					echo ("<div>®ádný klient nebyl nalezen.</div>");
+				}
 			}
 		?>
 	</div>
