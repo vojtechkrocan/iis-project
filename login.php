@@ -28,10 +28,12 @@
 			<?php
 		}
 	}
+	/*
 	echo("USER: ");
 	var_dump($_SESSION['user']);
 	echo("WORKER: ");
 	var_dump($_SESSION['worker']);
+	*/
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
@@ -60,34 +62,6 @@
 				</table>
 			</form>
 		</div>
-		<!--
-		<form action="index.php" method="post" align="center">
-
-			<div>Vá¹ login:</div>
-			<div><input type="text" name="pin" size="23"/></div>
-			<div>Heslo:</div>
-			<div><input type="text" name="password" size="23" /></div>
-
-			<table align="center" text-align>
-				<tr>
-					<td align="left">Vá¹ login:</td>
-				</tr>
-				<tr>
-					<td align="center"><input type="text" name="pin" size="17" /></td>
-				</tr>
-				<tr>
-					<td align="left">Heslo:</td>
-				</tr>
-				<tr>
-					<td align="center"><input type="text" name="password" size="17" /></td>
-				</tr>
-
-				<tr>
-					<td align="center" colspan="2" style="padding-top: 10px;"><input type="submit" name="Submit" size="35" value="Pøihlásit se" /></td>
-				</tr>
-			</table>
-		</form>
-		-->
 		<div style="padding-top: 50px;">
 			<a href="worker_login.php" class="bigButton">Pøihlá¹ení pro zamìstnance</a>
 		</div>
