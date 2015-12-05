@@ -2,7 +2,7 @@
 	require_once 'core.php';
 
 	// pokud uz je $_SESSION['user'], tak presmeruj na index
-	if( $userLogged )
+	if( $_userLogged_ )
 	{
 		?>
 		<script>alert('Ji¾ jste pøihlá¹en.');</script>
