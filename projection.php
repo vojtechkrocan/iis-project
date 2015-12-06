@@ -1,5 +1,11 @@
 <?php
 	require_once 'core.php';
+
+	$found = false;
+	if( isset($_GET['id']) )
+	{
+		
+	}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
@@ -14,6 +20,7 @@
 		<hr>
 		<?php
 			// do else projekce nebyla nalezena
+
 		?>
 	</div>
 	<?php include 'footer.php'; ?>
