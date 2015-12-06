@@ -15,7 +15,7 @@
 		<form method="post">
 			<table align="center" border="0">
 				<tr>
-					<td><input type="text" name="search-word" placeholder="Hledaná fráze" required /></td>
+					<td><input type="text" name="search-word" placeholder="Hledaná fráze" /></td>
 					<td><button type="submit" name="btn-search">Hledat zamìstnance</button></td>
 				</tr>
 			</table>
@@ -43,7 +43,6 @@
 						<td>Adresa</td>
 						<td>Telefoní èíslo</td>
 						<td style='width: 45px;'>Editovat</td>
-						<td style='width: 45px;'>Odstranit</td>
 						</tr>");
 
 					while($row = $result->fetch_assoc())
@@ -54,16 +53,14 @@
 							<td>" . $row["login"] . "</td>
 							<td>" . $row["adresa"] . "</td>
 							<td>" . $row["telefoni_cislo"] . "</td>
+							<td><button onclick=\"window.location='edit_worker.php?id=" . $row["id_zamestnance"] . "'\">E</button></td>
 							</tr>");
 					}
 					echo("</table>");
 					echo("</div>");
 				}
 				else
-				{
-
 					echo ("<div>®ádný zamìstnanec nebyl nalezen.</div>");
-				}
 			}
 		?>
 	</div>

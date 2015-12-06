@@ -2,6 +2,7 @@ UPDATE `Kino`
 SET adresa = 'Nádra¾ní'
 WHERE id_kina = 2;
 
+# ALTER KLIENT
 # predelat DB - klient pridat adresu;
 ALTER TABLE `Klient`
 ADD COLUMN adresa VARCHAR(50) COLLATE latin2_czech_cs;
@@ -48,6 +49,76 @@ WHERE id_klienta = 10;
 
 ALTER TABLE `Klient`
 MODIFY COLUMN adresa VARCHAR(50) NOT NULL COLLATE latin2_czech_cs;
+
+# ALTER FILM
+#pridani ceny na k filmu
+ALTER TABLE `Film`
+ADD COLUMN cena INTEGER;
+
+UPDATE `Film`
+SET cena = 129
+WHERE id_filmu = 1;
+
+UPDATE `Film`
+SET cena = 129
+WHERE id_filmu = 2;
+
+UPDATE `Film`
+SET cena = 129
+WHERE id_filmu = 3;
+
+UPDATE `Film`
+SET cena = 129
+WHERE id_filmu = 4;
+
+UPDATE `Film`
+SET cena = 129
+WHERE id_filmu = 5;
+
+UPDATE `Film`
+SET cena = 129
+WHERE id_filmu = 6;
+
+UPDATE `Film`
+SET cena = 129
+WHERE id_filmu = 7;
+
+UPDATE `Film`
+SET cena = 129
+WHERE id_filmu = 8;
+
+UPDATE `Film`
+SET cena = 129
+WHERE id_filmu = 9;
+
+UPDATE `Film`
+SET cena = 129
+WHERE id_filmu = 10;
+
+UPDATE `Film`
+SET cena = 129
+WHERE id_filmu = 11;
+
+UPDATE `Film`
+SET cena = 129
+WHERE id_filmu = 12;
+
+UPDATE `Film`
+SET cena = 129
+WHERE id_filmu = 13;
+
+ALTER TABLE `Film`
+MODIFY cena INTEGER NOT NULL;
+
+# not nullty na Zamestnanci
+ALTER TABLE `Zamestnanec`
+MODIFY jmeno varchar(50) NOT NULL COLLATE latin2_czech_cs;
+
+ALTER TABLE `Zamestnanec`
+MODIFY prijmeni varchar(50) NOT NULL COLLATE latin2_czech_cs;
+
+ALTER TABLE `Zamestnanec`
+MODIFY adresa varchar(50) NOT NULL COLLATE latin2_czech_cs;
 
 # rezervace sedadel
 # asi pridat slozenej klic

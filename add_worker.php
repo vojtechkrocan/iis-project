@@ -78,7 +78,7 @@
 					<td><label for="superior">Nadøízený</label></td>
 					<td>
 						<?php
-							$sql = "SELECT id_zamestnance, jmeno, prijmeni, login
+							$sql = "SELECT *
 									FROM Zamestnanec
 									WHERE id_sef is NULL";
 							$result = $db->query($sql);

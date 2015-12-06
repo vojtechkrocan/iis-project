@@ -1,15 +1,15 @@
 .topbar {
-	background: rgba(0,0,0,0.86);
+	background: #e3e3e3;
 	height: 29px;
 	line-height: 29px;
 	text-align: right;
-	color: #fff;
+	color: #000000;
 	font-size: 0.8em;
 	padding-right: 15px;
 }
 .topbar a {
 	text-decoration: none;
-	color: #fff;
+	color: #000000;
 }
 .topbar a:hover {
 	color: #ffc423;
@@ -20,16 +20,16 @@ body {
 	margin: 0 auto;
 	width: 800px;
 	color: #000000;
-	background-color: #e3e3e3;
+	background-color: #222222;
 	height:100%;
 }
 
 .content {
 	padding-top: 20px;
 	padding-bottom: 20px;
-	padding-left: 16px;
-	padding-right: 16px;
-	background-color: #222222;
+	padding-left: 22px;
+	padding-right: 22px;
+	background-color: #e3e3e3;
 	text-align: center;
 	height: auto;
 	min-height: 100%;
@@ -55,18 +55,27 @@ form .error {
 }
 
 h1, h2 {
-	color: #31A9B8;
+	color: #000000;
 	font-size: 1.7em;
 	font-weight: normal;
-	font-family: Oxygen, Arial, 'Helvetica Neue', Helvetica, sans-serif;
+	font-family: Verdana, Geneva, sans-serif;
+	text-align: left;
 }
+.cinema {
+	color: #000000;
+	font-size: 1.0em;
+	font-weight: normal;
+	font-family: Verdana, Geneva, sans-serif;
+	text-align: left;
+}
+
 
 h1 a {
 	color: #31A9B8;
 }
 
 h2 {
-	font-size: 1.4em;
+	font-size: 1.1em;
 }
 
 .date {
@@ -208,7 +217,7 @@ h2 {
 
 table {
 	text-align: center;
-	color: #00c5cd;
+	color: #000000;
 }
 
 button {
@@ -238,6 +247,9 @@ td button {
 .bigger {
 	padding-left: 20px;
 	padding-right: 20px;
+}
+.remove {
+	background: #E40000;
 }
 
 .moviesTable {
@@ -292,4 +304,9 @@ input {
 }
 .footer a:hover {
 	color: #ffc423;
+}
+
+hr {
+	border-color: #fff;
+	border-style: inset;
 }

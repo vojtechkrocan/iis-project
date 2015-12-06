@@ -36,27 +36,29 @@
 <body>
 	<div class="content">
 		<h2>Pøihlá¹ení</h2>
-			<form method="post">
-				<table align="center" width="30%" border="0">
-					<tr>
-						<td><label for="username">Pøihla¹ovací jméno</label></td>
-					</tr>
-					<tr>
-						<td><input type="text" name="username" placeholder="Pøihla¹ovací jméno" id="username" required /></td>
-					</tr>
-					<tr>
-						<td><label for="pass">Heslo</label></td>
-					</tr>
-					<tr>
-						<td><input type="password" name="pass" placeholder="Heslo" id="pass" required /></td>
-					</tr>
-					<tr>
-						<td><button type="submit" name="btn-login" class="topMargin">Pøihlásit se</button></td>
-					</tr>
-				</table>
-			</form>
+		<hr>
+		<form method="post">
+			<table align="center" width="30%" border="0">
+				<tr>
+					<td><label for="username">U¾ivatelské jméno</label></td>
+				</tr>
+				<tr>
+					<td><input type="text" name="username" placeholder="Pøihla¹ovací jméno" id="username" required /></td>
+				</tr>
+				<tr>
+					<td><label for="pass">Heslo</label></td>
+				</tr>
+				<tr>
+					<td><input type="password" name="pass" placeholder="Heslo" id="pass" required /></td>
+				</tr>
+				<tr>
+					<td><button type="submit" name="btn-login" class="topMargin">Pøihlásit se</button></td>
+				</tr>
+			</table>
+		</form>
+		<hr style="margin-top: 60px;">
 		<div>
-			<button type="button" onclick="window.location='login_worker.php';" style="width: auto; margin-top: 60px;">Pøihlá¹ení pro zamìstnance</button>
+			<button type="button" onclick="window.location='login_worker.php';" style="width: auto;">Pøihlá¹ení pro zamìstnance</button>
 		</div>
 	</div>
 	<?php include 'footer.php'; ?>

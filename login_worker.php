@@ -45,7 +45,7 @@
 		<form method="post">
 			<table align="center">
 				<tr>
-					<td><label for="username">Pøihla¹ovací jméno</label></td>
+					<td><label for="username">U¾ivatelské jméno</label></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="username" placeholder="Pøihla¹ovací jméno" required /></td>

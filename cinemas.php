@@ -10,6 +10,8 @@
 </head>
 <body>
 	<div class="content">
+		<h2>Kina</h2>
+		<hr>
 		<?php
 			$sql = "SELECT nazev, adresa, telefoni_cislo
 					FROM Kino";

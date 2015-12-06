@@ -10,7 +10,6 @@
 </head>
 <!-- TODO:
  - pridat oddelovace pod vyhledavani
-
  - phpeeckem nainsertovat sedadla
  - do programu kalendar - jinak zobrazovat dnes, zitra, pozitri...a pak kalendar
  - pozadi
@@ -25,6 +24,7 @@
 <body>
 	<div class="content">
 		<h2>Nejnovìj¹í filmy</h2>
+		<hr noshade>
 		<?php
 			$sql = "SELECT F.nazev AS Fnazev, F.autor, F.delka, Z.nazev AS Znazev
 					FROM Film F JOIN Zanr Z

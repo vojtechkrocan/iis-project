@@ -11,10 +11,11 @@
 <body>
 	<div class="content" >
 		<h2>Na¹e spoleènost</h2>
-		<div>
-			Najdete nas na adrese...</br>
-			<h2>Vojtìch Kalivoda</h2>
-			<h2>Tomá¹ Konderla</h2>
+		<hr>
+		<div style="text-align: left; font-size: 0.8em;">
+			Najdete nás na adrese Milady Horákové 11, Brno.</br>
+			Na¹e spoleènost byla zalo¾ena roku 2015 pøi spolupráci na projektu.</br>
+			Zakladatelé: Vojtìch Kalivoda, Tomá¹ Konderla
 		</div>
 	</div>
 	<?php include 'footer.php'; ?>

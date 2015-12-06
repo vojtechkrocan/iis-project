@@ -12,10 +12,11 @@
 <body>
 	<div class="content" >
 		<h2>Vyhledávání klientù</h2>
+		<hr>
 		<form method="post">
 			<table align="center" border="0">
 				<tr>
-					<td><input type="text" name="search-word" placeholder="Hledaná fráze" required /></td>
+					<td><input type="text" name="search-word" placeholder="Hledaná fráze" /></td>
 					<td><button type="submit" name="btn-search">Hledat klienta</button></td>
 				</tr>
 			</table>
@@ -41,7 +42,6 @@
 						<td>Pøihla¹ovací jméno</td>
 						<td>Vìk</td>
 						<td>Editovat</td>
-						<td>Odstranit</td>
 						</tr>");
 
 					while($row = $result->fetch_assoc())
@@ -51,6 +51,7 @@
 							<td>" . $row["prijmeni"] . "</td>
 							<td>" . $row["username"] . "</td>
 							<td>" . $row["vek"] . " let</td>
+							<td><button onclick=\"window.location='edit_user.php?id=" . $row["id_klienta"] . "'\">E</button></td>
 							</tr>");
 					}
 					echo("</table>");
@@ -62,6 +63,7 @@
 					echo ("<div>®ádný klient nebyl nalezen.</div>");
 				}
 			}
+			// tady GET
 		?>
 	</div>
 	<?php include 'footer.php'; ?>

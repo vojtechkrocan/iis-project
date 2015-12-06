@@ -1,6 +1,6 @@
 <?php
-	var_dump($_userLogged_);
-	var_dump($_userRights_);
+	//var_dump($_userLogged_);
+	//var_dump($_userRights_);
 ?>
 <div class="topbar">
 	<?php
@@ -11,7 +11,6 @@
 				$sql = "SELECT *
 						FROM Klient
 						WHERE id_klienta = '" . $_userLogged_ . "'";
-
 			}
 			else
 			{
