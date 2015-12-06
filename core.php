@@ -8,7 +8,7 @@
 	$_userLogged_ = false;
 	$_userRights_ = 0;
 	if( isset($_SESSION['user']) and $_SESSION['user'] != "" )
-		$_userLogged_ = true;
+		$_userLogged_ = $_SESSION['user'];
 	if( isset($_SESSION['rights']) and $_SESSION['rights'] != "")
 		$_userRights_ = $_SESSION['rights'];
 	include 'header.php';
