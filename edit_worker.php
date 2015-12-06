@@ -89,9 +89,9 @@
 
 	if( isset($_POST['btn-remove']) )
 	{
-		$id_klienta = $_POST['id_klienta'];
-		$sql = "DELETE FROM Klient
-				WHERE id_klienta = $id_klienta";
+		$id_zamestnance = $_POST['id_zamestnance'];
+		$sql = "DELETE FROM Zamestnanec
+				WHERE id_zamestnance = $id_zamestnance";
 		if ($db->query($sql) === TRUE)
 		{
 			// asi predat flashMessage
@@ -100,7 +100,7 @@
 		else
 		{
 			echo("<div id='flashMessage'>");
-			echo("U¾ivatele " . $username . " se nepodaøilo odstranit z databáze.");
+			echo("Zamìstnance " . $username . " se nepodaøilo odstranit z databáze.");
 			echo("</div>");
 		}
 	}
