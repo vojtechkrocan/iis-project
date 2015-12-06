@@ -60,7 +60,13 @@ h1, h2 {
 	font-weight: normal;
 	font-family: Verdana, Geneva, sans-serif;
 	text-align: left;
+	margin: 0px;
 }
+
+p {
+	margin: 0px;
+}
+
 .cinema {
 	color: #000000;
 	font-size: 1.0em;
@@ -76,15 +82,6 @@ h1 a {
 
 h2 {
 	font-size: 1.1em;
-}
-
-.date {
-	color: #999;
-	text-align: center;
-	font-variant: small-caps;
-	font-size: .8em;
-	letter-spacing: 3px;
-	margin: 0 0 -1em;
 }
 
 .movies {
@@ -260,6 +257,25 @@ td button {
 	border: 1px solid #fff;
 	display: inline-table;
 }
+
+.projectionTable {
+	display: inline-table;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.projectionTable td {
+	height: 80px;
+	width: 100px;
+	background: rgba(12,45,78,11);
+	border: 0px;
+	color: #fff;
+	border-radius: 6px;
+}
+.projectionTable td:hover {
+	color: #ffc423;
+}
+
 
 input {
 	height: 35px;

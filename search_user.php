@@ -41,7 +41,7 @@
 						<td>Pøíjmení</td>
 						<td>Pøihla¹ovací jméno</td>
 						<td>Vìk</td>
-						<td>Editovat</td>
+						<td style='width: 45px;'>Editovat</td>
 						</tr>");
 
 					while($row = $result->fetch_assoc())

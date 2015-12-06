@@ -46,7 +46,6 @@
 						<td>Mìsto</td>
 						<td>Telefoní èíslo</td>
 						<td style='width: 45px;'>Editovat</td>
-						<td style='width: 45px;'>Odstranit</td>
 						</tr>");
 
 					while($row = $result->fetch_assoc())

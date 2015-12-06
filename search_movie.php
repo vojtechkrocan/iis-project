@@ -42,8 +42,7 @@
 							<td>®ánr</td>
 							<td>Délka</td>
 							<td>Pøidán do systému</td>
-							<td>Editovat</td>
-							<td>Odstranit</td>
+							<td style='width: 45px;'>Editovat</td>
 						</tr>");
 
 					while($row = $result->fetch_assoc())
