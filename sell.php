@@ -10,7 +10,8 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 	<div class="content" >
-
+		<h2>Prodej lístkù</h2>
+		
 	</div>
 	<?php include 'footer.php'; ?>
 </body>

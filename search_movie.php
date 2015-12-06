@@ -11,11 +11,12 @@
 </head>
 <body>
 	<div class="content" >
+		<h2>Vyhledávání filmù</h2>
 		<form method="post">
 			<table align="center" border="0">
 				<tr>
 					<td><input type="text" name="search-word" placeholder="Hledaná fráze" required /></td>
-					<td><button type="submit" name="btn-search" style="margin-left: 25px;">Hledat film</button></td>
+					<td><button type="submit" name="btn-search">Hledat film</button></td>
 				</tr>
 			</table>
 		</form>

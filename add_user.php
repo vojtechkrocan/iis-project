@@ -7,23 +7,34 @@
 		$jmeno = $_POST['jmeno'];
 		$prijmeni = $_POST['prijmeni'];
 		$upass = $_POST['pass'];
-
-		// check jestli uz neexistuje
-		$sql = "SELECT username FROM Klient WHERE username = '$username'";
+		$vek = $_POST['vek'];
+		$adresa = $_POST['adresa'];
+		// check if already exists
+		$sql = "SELECT username
+				FROM Klient
+				WHERE username = '$username'";
 		$result = $db->query($sql);
 		if ($result->num_rows > 0)
 		{
-			
+			echo("<div id='flashMessage'>");
+			echo("U¾ivatel " . $username . " ji¾ existuje.");
+			echo("</div>");
 		}
 		else
 		{
-			$sql = "INSERT INTO Klient(username, jmeno, prijmeni, heslo) VALUES('$username','$jmeno', '$prijmeni','$upass')";
+			$sql = "INSERT INTO Klient(username, jmeno, prijmeni, heslo, vek, adresa)
+					VALUES('$username','$jmeno', '$prijmeni','$upass', '$vek', '$adresa')";
 			if ($db->query($sql) === TRUE)
 			{
-
+				echo("<div id='flashMessage'>");
+				echo("U¾ivatel " . $username . " byl úspì¹nì pøidán.");
+				echo("</div>");
 			}
 		 	else
 			{
+				echo("<div id='flashMessage'>");
+				echo("U¾ivatele " . $username . " se nepodaøilo vlo¾it do databáze.");
+				echo("</div>");
 		 	}
 		}
 	}
@@ -32,31 +43,43 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
-	<title>Registrace</title>
+	<title>Pøidání nového u¾ivatele</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-	<?php include 'header.php' ?>
 	<div class="content">
+		<h2>Pøidání nového u¾ivatele</h2>
 		<form method="post">
-			<table align="center" width="30%" border="0" text-align="left">
+			<table align="center" border="0">
 				<tr>
-					<td style="padding-top: 15px;"><input type="text" name="username" placeholder="U¾ivatelské jméno" required /></td>
+					<td><label for="jmeno">Køestní jméno</label></td>
+					<td><input type="text" name="jmeno" required /></td>
 				</tr>
 				<tr>
-					<td style="padding-top: 15px;"><input type="text" name="jmeno" placeholder="Køestní jméno" required /></td>
+					<td><label for="prijmeni">Pøíjmení</label></td>
+					<td><input type="text" name="prijmeni" required /></td>
 				</tr>
 				<tr>
-					<td style="padding-top: 15px;"><input type="text" name="prijmeni" placeholder="Pøíjmení" required /></td>
+					<td><label for="vek">Vìk</label></td>
+					<td><input type="text" name="vek" required /></td>
 				</tr>
 				<tr>
-					<td style="padding-top: 15px;"><input type="password" name="pass" placeholder="Heslo" required /></td>
+					<td><label for="adresa">Adresa</label></td>
+					<td><input type="text" name="adresa" /></td>
 				</tr>
 				<tr>
-					<td style="padding-top: 15px;"><button type="submit" name="btn-add">Registrovat</button></td>
+					<td><label for="username">U¾ivatelské jméno</label></td>
+					<td><input type="text" name="username" required /></td>
+				</tr>
+				<tr>
+					<td><label for="pass">Heslo</label></td>
+					<td><input type="password" name="pass" required /></td>
 				</tr>
 			</table>
+			<div class="topMargin">
+				<button type="submit" name="btn-add" class="bigger">Pøidat u¾ivatele</button>
+			</div>
 		</form>
 	</div>
 	<?php include 'footer.php'; ?>

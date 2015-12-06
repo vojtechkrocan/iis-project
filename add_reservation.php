@@ -11,6 +11,7 @@
 </head>
 <body>
 	<div class="content" >
+		<h2>Pøidání rezervace</h2>
 		<!-- Tady pokracovat -->
 	</div>
 	<?php include 'footer.php'; ?>

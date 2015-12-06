@@ -11,6 +11,7 @@
 </head>
 <body>
 	<div class="content" >
+		<h2>Vyhledávání rezervací</h2>
 		<form method="post">
 			<table align="center" border="0">
 				<tr>
@@ -30,7 +31,8 @@
 						WHERE
 							K.username LIKE '%" . $search_word . "%'
 							OR K.jmeno LIKE '%" . $search_word . "%'
-							OR K.prijmeni LIKE '%" . $search_word . "%'";
+							OR K.prijmeni LIKE '%" . $search_word . "%'
+							OR F.nazev LIKE '%" . $search_word . "%'";
 				$result = $db->query($sql);
 				if ($result->num_rows > 0)
 				{

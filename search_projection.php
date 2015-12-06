@@ -11,6 +11,7 @@
 </head>
 <body>
 	<div class="content" >
+		<h2>Vyhledávání projekcí</h2>
 		<form method="post">
 			<table align="center" border="0">
 				<tr>

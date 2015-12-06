@@ -8,7 +8,9 @@
 	{
 		$username = $_POST['username'];
 		$upass = $_POST['pass'];
-		$sql = "SELECT * FROM Zamestnanec WHERE login = '" . $username . "' AND heslo = '" .$upass . "'";
+		$sql = "SELECT *
+				FROM Zamestnanec
+				WHERE login = '" . $username . "' AND heslo = '" .$upass . "'";
 		$result = $db->query($sql);
 		if( $result->num_rows == 1 )
 		{

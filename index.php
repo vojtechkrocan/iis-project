@@ -9,9 +9,8 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <!-- TODO:
- - userLogged predelat na int a dat do podminek "> 0"
  - pridat oddelovace pod vyhledavani
- - predelat DB - klient pridat adresu; poresit rezervace sedadel
+
  - phpeeckem nainsertovat sedadla
  - do programu kalendar - jinak zobrazovat dnes, zitra, pozitri...a pak kalendar
  - pozadi
@@ -21,6 +20,7 @@
  - pridat flashmessage
  - tady pridat cestu k obrazkum filmu
  - predelat prihlasovaci jmeno na uzivatelske
+ - udelat tlacitko zpet
 -->
 <body>
 	<div class="content">
