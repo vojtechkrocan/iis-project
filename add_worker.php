@@ -77,7 +77,6 @@
 							$sql = "SELECT id_zamestnance, jmeno, prijmeni, login
 									FROM Zamestnanec
 									WHERE id_sef is NULL";
-							var_dump($sql);
 							$result = $db->query($sql);
 							if ($result->num_rows > 0)
 							{

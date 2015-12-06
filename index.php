@@ -10,7 +10,7 @@
 </head>
 <!-- TODO:
  - pridat oddelovace pod vyhledavani
- - predelat DB - klient pridat adresu; poresit rezervace
+ - predelat DB - klient pridat adresu; poresit rezervace sedadel
  - phpeeckem nainsertovat sedadla
  - do programu kalendar - jinak zobrazovat dnes, zitra, pozitri...a pak kalendar
  - pozadi

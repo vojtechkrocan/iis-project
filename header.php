@@ -1,8 +1,6 @@
 <?php
- 	/*
 	var_dump($_userLogged_);
 	var_dump($_userRights_);
-	*/
 ?>
 <div class="topbar">
 	<?php
