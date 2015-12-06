@@ -50,24 +50,6 @@
 	?>
 </div>
 <div class="mainMenu">
-		<div class="userArea">
-			<?php
-				/*
-				if( $_userLogged_ )
-				{
-					?>
-						<button type="button" onclick="window.location='logout.php';" style="width: auto">Odhlásit se</button>
-					<?php
-				}
-				else
-				{
-					?>
-						<button type="button" onclick="window.location='login.php';" style="width: auto">Pøihlásit se</button>
-					<?php
-				}
-				*/
-			?>
-		</div>
 	<div class="menu">
 		<div class="menuBG">
 			<a href="index.php" class="menuItem">Domù</a>

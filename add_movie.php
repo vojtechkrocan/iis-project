@@ -2,7 +2,6 @@
 	require_once 'core.php';
 	require_once 'check_worker.php';
 
-	// pridani je time()
 	if( isset($_POST['btn-add']) )
 	{
 		$nazev = $_POST['nazev'];
@@ -56,7 +55,6 @@
 							else
 								echo ("Do¹lo k SQL chybì: " . $db->error);
 						?>
-
 					</td>
 				</tr>
 				<tr>

@@ -25,7 +25,7 @@
 				<td><button type="submit" onclick="window.location='search_user.php';">Hledat klienta</button></td>
 			</tr>
 			<tr>
-				<td><button type="submit" onclick="window.location='register_user.php';">Registrovat nového klienta</button></td>
+				<td><button type="submit" onclick="window.location='add_user.php';">Pøidat nového klienta</button></td>
 			</tr>
 			<tr>
 				<td><h2>Filmová sekce</h2></td>
@@ -63,13 +63,13 @@
 						<td><h2>Administraèní sekce</h2></td>
 					</tr>
 					<tr>
-						<td><button type="submit" onclick="window.location='register_worker.php';">Pøidat zamìstnance</button></td>
+						<td><button type="submit" onclick="window.location='add_worker.php';">Pøidat zamìstnance</button></td>
 					</tr>
 					<tr>
 						<td><button type="submit" onclick="window.location='search_worker.php';">Hledat zamìstnance</button></td>
 					</tr>
 					<tr>
-						<td><button type="submit" onclick="window.location='search_worker.php';">Zjistit tr¾bu</button></td>
+						<td><button type="submit" onclick="window.location='get_receipts.php';">Zjistit tr¾bu</button></td>
 					</tr>
 					<?php
 				}

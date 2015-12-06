@@ -19,6 +19,7 @@
  - dodelat zpravy pri check_*.php
  - pridat flashmessage
  - tady pridat cestu k obrazkum filmu
+ - predelat prihlasovaci jmeno na uzivatelske
 -->
 <body>
 	<div class="content">

@@ -111,6 +111,8 @@ h2 {
 	background-image: url('../img/header.png');
 	font-family: 'Open Sans', Verdana, 'Geneva CE', lucida, sans-serif;
 	border-bottom: 5px solid rgba(12,45,78,11);
+	padding-top: 80px;
+	width: 100%;
 }
 
 .menu {
@@ -265,6 +267,8 @@ input {
 #flashMessage {
 	background-color: #fff7a4;
 	font-size: 0.9em;
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 .footer {
