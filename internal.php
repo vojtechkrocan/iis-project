@@ -22,7 +22,7 @@
 				<td><h2>Klientská sekce</h2></td>
 			</tr>
 			<tr>
-				<td><button type="submit" onclick="window.location='search_user.php';">Najít klienta</button></td>
+				<td><button type="submit" onclick="window.location='search_user.php';">Hledat klienta</button></td>
 			</tr>
 			<tr>
 				<td><button type="submit" onclick="window.location='register_user.php';">Registrovat nového klienta</button></td>
@@ -31,7 +31,7 @@
 				<td><h2>Filmová sekce</h2></td>
 			</tr>
 			<tr>
-				<td><button type="submit" onclick="window.location='search_movie.php';">Najít film</button></td>
+				<td><button type="submit" onclick="window.location='search_movie.php';">Hledat film</button></td>
 			</tr>
 			<tr>
 				<td><button type="submit" onclick="window.location='add_movie.php';">Pøidat nový film</button></td>
@@ -40,7 +40,7 @@
 				<td><h2>Rezervaèní sekce</h2></td>
 			</tr>
 			<tr>
-				<td><button type="submit" onclick="window.location='search_reservation.php';">Najít rezervaci</button></td>
+				<td><button type="submit" onclick="window.location='search_reservation.php';">Hledat rezervaci</button></td>
 			</tr>
 			<tr>
 				<td><button type="submit" onclick="window.location='add_reservation.php';">Pøidat rezervaci</button></td>
@@ -49,12 +49,11 @@
 				<td><h2>Projekèní sekce</h2></td>
 			</tr>
 			<tr>
-				<td><button type="submit" onclick="window.location='';">Pøidat projekci</button></td>
+				<td><button type="submit" onclick="window.location='search_projection.php';">Hledat projekci</button></td>
 			</tr>
 			<tr>
-				<td><button type="submit" onclick="window.location='';">Hledat projekci</button></td>
+				<td><button type="submit" onclick="window.location='';">Pøidat projekci</button></td>
 			</tr>
-
 			<!-- tohle uz ma videt jen ten, kdo ma jako nadrizeneho NULL -->
 			<?php
 				if( $_userRights_ == ADMIN_RIGHTS )

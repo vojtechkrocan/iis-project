@@ -15,14 +15,13 @@
 			<table align="center" border="0">
 				<tr>
 					<td><input type="text" name="search-word" placeholder="Hledaná fráze" required /></td>
-					<td><button type="submit" name="btn-search" style="margin-left: 25px;">Hledat klienta</button></td>
+					<td><button type="submit" name="btn-search">Hledat klienta</button></td>
 				</tr>
 			</table>
 		</form>
 		<?php
 			if( isset($_POST['btn-search']) )
 			{
-				$search_word = "";
 				$search_word = $_POST['search-word'];
 				$sql = "SELECT *
 						FROM Klient

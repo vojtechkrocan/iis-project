@@ -1,31 +1,26 @@
 <?php
 	require_once 'core.php';
 	require_once 'check_worker.php';
-	/*
-	$sql = "SELECT nazev, delka, autor FROM Film ORDER BY id_filmu DESC LIMIT 6";
-	//$stmt = $db->prepare("INSERT INTO MyGuests (firstname, lastname, email) VALUES (?, ?, ?)");
-	$result = $db->query($sql);
-	if ($result->num_rows > 0)
+
+	// pridani je time()
+	if( isset($_POST['btn-add']) )
 	{
-		$divide = 0;
-		while($row = $result->fetch_assoc())
+		$nazev = $_POST['nazev'];
+		$zanr = $_POST['zanr'];
+		$autor = $_POST['autor'];
+		$delka = $_POST['delka'];
+		$datum_prijeti = date('Y-m-d H:i:s', $_SERVER['REQUEST_TIME']);
+		$sql = "INSERT INTO Film (nazev, id_zanru, autor, delka, datum_prijeti)
+				VALUES ('$nazev', $zanr, '$autor', $delka, '$datum_prijeti')";
+		echo("<div id='flashMessage'>");
+		if ($db->query($sql) === TRUE)
 		{
-			if($divide % 3 == 0)
-				echo("<div class='movies'>");
-			echo("<table class='moviesTable' >");
-			//echo("<tr><td><span class='description'>" . $row["Zanr.nazev"] . "</span></td></tr>");
-			echo("<tr><td height='230px'><img src='img/movies/asd.jpg' width='100%' height='100%'></td></tr>");
-			echo("<tr><td height='45px'><span class=''>" . $row["nazev"] . "</span></td></tr>");
-			echo("<tr><td><span class='description'>Délka: " . $row["delka"] . " minut</span></td></tr>");
-			echo("</table>");
-			if($divide % 3 == 2)
-				echo("</div>");
-			$divide++;
+			echo ("Film byl úspì¹nì vlo¾en do databáze.");
 		}
+		else
+			echo ("Film se nepodaøilo vlo¾it. Sql: " . $db->error);
+		echo("</div>");
 	}
-	else
-		echo ("Doslo k SQL chybe: " . $db->error);
-		*/
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
@@ -36,8 +31,55 @@
 </head>
 <body>
 	<div class="content" >
+		<h2>Pøidat nový film</h2>
+		<form method="post">
+			<table align="center" border="0">
+				<tr>
+					<td><label for="nazev">Název filmu</label></td>
+					<td><input type="text" name="nazev" required /></td>
+				</tr>
+				<tr>
+					<td><label for="zanr">®ánr</label></td>
+					<td>
+						<?php
+							$sql = "SELECT id_zanru, nazev FROM Zanr";
+							$result = $db->query($sql);
+							if ($result->num_rows > 0)
+							{
+								echo("<select name='zanr' class='box'>");
+								while($row = $result->fetch_assoc())
+								{
+									echo("<option value='" . $row['id_zanru'] . "'>" . $row['nazev'] . "</option>");
+								}
+								echo("</select>");
+							}
+							else
+								echo ("Do¹lo k SQL chybì: " . $db->error);
+						?>
 
+					</td>
+				</tr>
+				<tr>
+					<td><label for="autor">Autor</label></td>
+					<td><input type="text" name="autor" required /></td>
+				</tr>
+				<tr>
+					<td><label for="delka">Délka</label></td>
+					<td><input type="text" name="delka" required /></td>
+				</tr>
+			</table>
+			<div class="topMargin ">
+				<button type="submit" name="btn-add" style="width: 143px;">Pøidat film</button>
+			</div>
+		</form>
 	</div>
 	<?php include 'footer.php'; ?>
+	<script>
+		var fm = document.getElementById("flashMessage");
+		console.log(fm);
+		$('fm').click(function(){
+        	$(this).hide();
+		});
+	</script>
 </body>
 </html>

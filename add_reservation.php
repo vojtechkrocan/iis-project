@@ -1,3 +1,7 @@
+<?php
+	require_once 'core.php';
+	require_once 'check_worker.php';
+?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
 <head>
@@ -6,13 +10,8 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<?php
-		include 'header.php';
-		require_once 'db_connection.php';
-		//require_once 'admin_check.php';
-	?>
 	<div class="content" >
-		<!-- TODO: obycejnej insert-->
+		<!-- Tady pokracovat -->
 	</div>
 	<?php include 'footer.php'; ?>
 </body>

@@ -1,6 +1,8 @@
 <?php
 	session_start();
 	session_destroy();
+	$_userLogged_ = false;
+	$_userRights_ = 0;
 	require_once 'core.php';
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>

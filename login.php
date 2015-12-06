@@ -1,13 +1,8 @@
 <?php
 	require_once 'core.php';
 
-	// pokud uz je $_SESSION['user'], tak presmeruj na index
-	if( $_userLogged_ )
-	{
-		?>
-		<script>alert('Ji¾ jste pøihlá¹en.');</script>
-		<?php
-	}
+	if( $_userLogged_ ) // user is already logged on
+		header("Location: index.php");
 
 	if( isset($_POST['btn-login']) )
 	{
@@ -56,12 +51,12 @@
 						<td><input type="password" name="pass" placeholder="Heslo" id="pass" required /></td>
 					</tr>
 					<tr>
-						<td style="padding-top: 20px"><button type="submit" name="btn-login">Pøihlásit se</button></td>
+						<td><button type="submit" name="btn-login" class="topMargin">Pøihlásit se</button></td>
 					</tr>
 				</table>
 			</form>
-		<div style="padding-top: 50px;">
-			<button type="button" onclick="window.location='login_worker.php';" style="width: auto">Pøihlá¹ení pro zamìstnance</button>
+		<div>
+			<button type="button" onclick="window.location='login_worker.php';" style="width: auto; margin-top: 60px;">Pøihlá¹ení pro zamìstnance</button>
 		</div>
 	</div>
 	<?php include 'footer.php'; ?>

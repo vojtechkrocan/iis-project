@@ -1,7 +1,10 @@
 <?php
 	require_once 'core.php';
 
-	if( isset($_POST['btn-login']) )
+	if( $_userLogged_ ) // user already logged on
+		header("Location: index.php");
+
+	if( isset($_POST['btn-login']) ) // login button pressed
 	{
 		$username = $_POST['username'];
 		$upass = $_POST['pass'];
@@ -20,6 +23,7 @@
 		}
 		else
 		{
+			// TODO - nejak rozumeji oznamit
 			?>
 			<script>alert('©patné pøihla¹ovací údaje.');</script>
 			<?php
@@ -39,20 +43,19 @@
 		<form method="post">
 			<table align="center">
 				<tr>
-					<td align="left">Vá¹ login:</td>
+					<td><label for="username">Pøihla¹ovací jméno</label></td>
 				</tr>
 				<tr>
 					<td><input type="text" name="username" placeholder="Pøihla¹ovací jméno" required /></td>
 				</tr>
 				<tr>
-					<td align="left">Heslo:</td>
+					<td><label for="username">Heslo</label></td>
 				</tr>
 				<tr>
 					<td><input type="password" name="pass" placeholder="Heslo" required /></td>
 				</tr>
-
 				<tr>
-					<td style="padding-top: 20px"><button type="submit" name="btn-login">Pøihlásit se</button></td>
+					<td><button type="submit" name="btn-login" class="topMargin">Pøihlásit se</button></td>
 				</tr>
 			</table>
 		</form>

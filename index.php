@@ -15,12 +15,20 @@
  - do programu kalendar - jinak zobrazovat dnes, zitra, pozitri...a pak kalendar
  - pozadi
  - pridat vyjimku na system
+ - interni - 2 tabulky na radek + ikona nad to
+ - dodelat zpravy pri check_*.php
+ - pridat flashmessage
+ - tady pridat cestu k obrazkum filmu
 -->
 <body>
 	<div class="content">
 		<h2>Nejnovìj¹í filmy</h2>
 		<?php
-			$sql = "SELECT nazev, delka, autor FROM Film ORDER BY id_filmu DESC LIMIT 6";
+			$sql = "SELECT F.nazev AS Fnazev, F.autor, F.delka, Z.nazev AS Znazev
+					FROM Film F JOIN Zanr Z
+					ON F.id_zanru = Z.id_zanru
+					ORDER BY id_filmu
+					DESC LIMIT 6";
 			$result = $db->query($sql);
 			if ($result->num_rows > 0)
 			{
@@ -30,9 +38,9 @@
 					if($divide % 3 == 0)
 						echo("<div class='movies'>");
 					echo("<table class='moviesTable' >");
-					//echo("<tr><td><span class='description'>" . $row["Zanr.nazev"] . "</span></td></tr>");
+					echo("<tr><td><span class='description'>" . $row["Znazev"] . "</span></td></tr>");
 					echo("<tr><td height='230px'><img src='img/movies/asd.jpg' width='100%' height='100%'></td></tr>");
-					echo("<tr><td height='45px'><span class=''>" . $row["nazev"] . "</span></td></tr>");
+					echo("<tr><td height='45px'><span class=''>" . $row["Fnazev"] . "</span></td></tr>");
 					echo("<tr><td><span class='description'>Délka: " . $row["delka"] . " minut</span></td></tr>");
 					echo("</table>");
 					if($divide % 3 == 2)

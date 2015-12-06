@@ -1,13 +1,13 @@
 <?php
- 	//smazat
+ 	/*
 	var_dump($_userLogged_);
 	var_dump($_userRights_);
+	*/
 ?>
 <div class="topbar">
 	<?php
 		if( $_userLogged_ )
 		{
-			$sql = "";
 			if( $_userRights_ <= USER_RIGHTS )
 			{
 				$sql = "SELECT *
@@ -25,9 +25,13 @@
 			if( $result->num_rows == 1 )
 			{
 				$row = $result->fetch_assoc();
-				echo($row['jmeno'] . " " . $row['prijmeni']);
+				if( $_userRights_ <= USER_RIGHTS )
+					echo($row['username']);
+				else
+					echo($row['login']);
+				echo(" | " . $row['jmeno'] . " " . $row['prijmeni'] . " | ");
 				?>
-					| <a href="logout.php">Odhlásit se</a>
+					<a href="logout.php">Odhlásit se</a>
 				<?php
 			}
 			else
