@@ -49,7 +49,6 @@
 
 	}
 
-
 	if( isset($_POST['btn-order']) )
 	{
 
@@ -163,7 +162,7 @@
 
 
 						<?php
-						
+
 						?>
 
 					<?php

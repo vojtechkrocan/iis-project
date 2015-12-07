@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=iso-8859-2"/>
+    <title>Projekt IIS</title>
+    <style type="text/css">
+    	table { border-collapse: collapse; }
+    	td, th { border: 1px solid black; padding: 0.3em 0.5em; text-align: left; }
+    	dt { font-weight: bold; margin-top: 0.5em; }
+    </style>
+</head>
+<body>
+
+<!-- Zkontrolujte prosím nastavení kódování v hlavičce dokumentu
+     podle použitého editoru -->
+
+<h1>Řetězec multikin</h1> <!-- Nahradte názvem svého zadání -->
+
+<dl>
+	<dt>Autoři</dt>
+	<dd>Vojtěch Kalivoda <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xkaliv06@stud.fit.vutbr.cz">xkaliv06@stud.fit.vutbr.cz</a> -
+		správa uživatelů, rozložení uživatelského rozhraní, vkládání obsahu
+	</dd>
+	<dd>Tomáš Konderla <!-- Nahraďte skutečným jménem a e-mailem autora a popisem činnosti -->
+	    <a href="mailto:xkonde03@stud.fit.vutbr.cz">konde03@stud.fit.vutbr.cz</a> -
+		databázový subsystém, ovládací prvky uživatelského rozhraní
+	</dd>
+	<dt>URL aplikace</dt>
+	<dd><a href="http://www.stud.fit.vutbr.cz/~xkaliv06/IIS">http://www.stud.fit.vutbr.cz/~xkaliv06/IIS</a></dd>
+</dl>
+
+<h2>Uživatelé systému pro testování</h2>
+<p>Uveďte prosím existující zástupce <strong>všech rolí uživatelů</strong>.</p>
+<table>
+<tr><th>Login</th><th>Heslo</th><th>Role</th></tr>
+<tr><td>xbriz00</td><td>angryturkey</td><td>Administrátor</td></tr>
+<tr><td>xvrta00</td><td>angryturkey</td><td>Zaměstnanec firmy</td></tr>
+<tr><td>yfili00</td><td>asdasd</td><td>Zákazník</td></tr>
+</table>
+
+<h2>Implementace</h2>
+<p>Základními skripty jsou 'db_connection.php' a 'core.php'. První ze skriptů spravuje připojení k databázi, druhý má naicludované připojení k DB, startuje 'SESSION', spravuje přihlášené uživatele (včetně oprávnění)
+a definuje důležitá makra.</br>
+'header.php' má v sobě zabudovanou vizualizaci přihlášeného uživatele a podle práv zobrazí menu. Pro zaměstnance a administrátora v menu přibývá položka interní, přes kterou je možné se dostat
+k vykonání akcí možných jen pro zaměstnance nebo administrátora. V této sekci navíc pro administrátora přibývá možnost spravovat zaměstnance a zjistit tržbu.</br>
+Pro jednodušší kontrolu práv má projekt 2 skripty: 'check_user.php' a 'check_worker.php'. Ty jsou naicludované na začátku skriptů, které vyžaduji uživatelskou kontrolu.</br>
+Skripty, jejichž název začínajíná řetězcem 'add_' slouží k přidávání příslušných záznamů do databáze.</br>
+Skripty, jejichž název začínajíná řetězcem 'search_'  slouží k vyhledávání příslušných záznamů v DB.</br>
+K přihlašovaní slouží skripty 'login.php' a 'login_worker.php'. K editaci slouží skripty začínající na 'edit_'.</br>
+Další skripty 'cinemas.php', 'program.php', 'index.php', 'cinemas.php', 'footer.php', 'topbar.php' zobrazují věci, které mají v názvu.</br>
+Součástí projektu je CSS soubor 'style.css' nacházející se v podsložce 'css'.</br>
+Pozadí hlavičky stránky je načtené ze souboru 'img/header.png' a provizorní náhled filmů je v souboru 'img/movies/asd.jpg'.</br>
+Úpravy: Čas neruší ani nezlevňuje rezervace. Shodli jsme se, že to v daném schématu úplně nedává smysl.</br>
+Koupi vstupenek na místě neprovádí zákazník, ale zaměstnanec (zákazník jen obrdží lístek).</br>
+Tipy pro vyhledávání:
+<ul>
+	<li>Klient: Petr, yhrub00</li>
+	<li>Film: Rambo, Voda</li>
+	<li>Rezervace: system, Rambo</li>
+	<li>Projekce: ostrava, brno</li>
+	<li>Zaměstnanec: ostrava, cibulková</li>
+</ul>
+</p>
+
+<h2>Instalace</h2>
+<p>Nic speciálního.</p>
+<ul>
+<li>PHP5</li>
+<li>MySQL</li>
+<li>Rozbalit odevzadný archiv.</li>
+<li>Vytvořit DB pomocí skriptu.</li>
+</ul>
+<p>V případě zobrazení stránky "Dokument nenalezen" zkontrolvat práva soborů (měly by být 755).</p>
+
+<h2>Známé problémy</h2>
+<p>Nestihli jsme imeplementovat VIP klienta.</br>
+
+</body>
+</html>
