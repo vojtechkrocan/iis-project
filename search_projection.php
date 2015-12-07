@@ -24,7 +24,7 @@
 			if( isset($_POST['btn-search']) )
 			{
 				$search_word = $_POST['search-word'];
-				$sql = "SELECT P.cas_zahajeni, P.cas_ukonceni, S.nazev AS Snazev, K.nazev AS Knazev, K.mesto, K.telefoni_cislo
+				$sql = "SELECT P.id_projekce, P.cas_zahajeni, P.cas_ukonceni, S.nazev AS Snazev, K.nazev AS Knazev, K.mesto, K.telefoni_cislo
 						FROM Projekce P JOIN Film F JOIN Sal S JOIN Kino K
 						ON P.id_filmu = F.id_filmu AND P.id_salu = S.id_salu
 						AND S.id_kina = K.id_kina
@@ -45,7 +45,7 @@
 						<td>Kino</td>
 						<td>Mìsto</td>
 						<td>Telefoní èíslo</td>
-						<td style='width: 45px;'>Editovat</td>
+						<td style='width: 45px;'>Odstranit</td>
 						</tr>");
 
 					while($row = $result->fetch_assoc())
@@ -57,6 +57,7 @@
 							<td>" . $row["Knazev"] . "</td>
 							<td>" . $row["mesto"] . "</td>
 							<td>" . $row["telefoni_cislo"] . "</td>
+							<td><form method='post'><input type='hidden' name='btn-projection'><button type='submit' value='" . $row['id_projekce'] . "'>X</button></input></form></td>
 							</tr>");
 					}
 					echo("</table>");

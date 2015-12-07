@@ -12,7 +12,8 @@
 <body>
 	<div class="content" >
 		<h2>Pøidání rezervace</h2>
-		<!-- Tady pokracovat -->
+		<hr>
+		
 	</div>
 	<?php include 'footer.php'; ?>
 </body>

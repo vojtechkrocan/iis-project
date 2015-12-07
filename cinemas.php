@@ -22,9 +22,9 @@
 				while($row = $result->fetch_assoc())
 				{
 					echo("<div>");
-					echo("<h2>" . $row["nazev"] . "</h2>");
-					echo("<div class='description'>" . $row["adresa"] . "</div>");
-					echo("<div class='description'>Kontakt: " . $row["telefoni_cislo"] . "</div>");
+					echo("<h2>" . $row["nazev"] . "</h2><hr style='width: 40%;' align='left'>");
+					echo("<div class='description' style='padding-bottom: 20px;'>" . $row["adresa"] . "</br>");
+					echo("Kontakt: " . $row["telefoni_cislo"] . "</div>");
 					// saly
 					echo("</div>");
 				}
