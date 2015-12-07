@@ -7,7 +7,6 @@
 		$id_projekce = $_POST['id_projekce'];
 		$sql = "DELETE FROM Projekce
 				WHERE id_projekce = $id_projekce";
-		var_dump($sql);
 		if ($db->query($sql) === TRUE)
 		{
 			header("Location: internal.php");
@@ -30,6 +29,7 @@
 <body>
 	<div class="content" >
 		<h2>Vyhledávání projekcí</h2>
+		<hr>
 		<form method="post">
 			<table align="center" border="0">
 				<tr>

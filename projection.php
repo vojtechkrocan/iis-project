@@ -29,7 +29,7 @@
 			$cas_ukonceni = $row['cas_ukonceni'];
 
 			$volnych_mist = $row['velikost'];
-			var_dump($volnych_mist);
+			//var_dump($volnych_mist);
 			$sql_free = "SELECT *
 						FROM Rezervace R, Projekce P
 						WHERE R.id_projekce = P.id_projekce
@@ -39,34 +39,81 @@
 			{
 				while($row_free = $result_free->fetch_assoc())
 				{
-					echo("ID: ");
-					var_dump($row_free['id_rezervace']);
-					echo("pocet: ");
-					var_dump($row_free['pocet']);
+					//echo("ID: ");
+					//var_dump($row_free['id_rezervace']);
+					//echo("pocet: ");
+					//var_dump($row_free['pocet']);
 					$volnych_mist -= $row_free['pocet'];
-					var_dump($volnych_mist);
+					//var_dump($volnych_mist);
 				}
 			}
-			var_dump($volnych_mist);
+			//var_dump($volnych_mist);
 		}
 	}
 
 	if( isset($_POST['btn-order']) )
 	{
-		$sql = "SELECT ";
-		$mista = 0;
-		$sql_free = "SELECT *
-					FROM Rezervace R, Projekce P
-					WHERE R.id_projekce = P.id_projekce
-					AND P.id_projekce = " . $id_projekce;
-		$result_free = $db->query($sql_free);
-		if( $result_free->num_rows > 0)
+
+		$id_projekce = $_POST['id_projekce'];
+		$pocet = $_POST['reserve'];
+		if( $_userRights_ > USER_RIGHTS )
 		{
-			while($row_free = $result_free->fetch_assoc())
-				$mista -= $row_free['pocet'];
+			?>
+				<script>alert("Pihla¹te se jako bì¾ný u¾ivatel.");</script>
+			<?php
 		}
-		var_dump($mista);
-		//Header("Location my_reservations.php");
+		else
+		{
+			$mista = 0;
+			$sql = "SELECT *
+					FROM Projekce P, Sal S
+					WHERE P.id_salu = S.id_salu
+					AND P.id_projekce = $id_projekce";
+			$result= $db->query($sql);
+			if( $result->num_rows > 0)
+			{
+				$row = $result->fetch_assoc();
+				$mista = $row['velikost'];
+			}
+			$sql_free = "SELECT *
+						FROM Rezervace R, Projekce P
+						WHERE R.id_projekce = P.id_projekce
+						AND P.id_projekce = " . $id_projekce;
+			$obsazeno = 0;
+			$result_free = $db->query($sql_free);
+			if( $result_free->num_rows > 0)
+			{
+				while($row_free = $result_free->fetch_assoc())
+					$obsazeno += $row_free['pocet'];
+			}
+			$mista -= $obsazeno;
+			// mista = pocet volnych mist
+			if( $pocet > $mista )
+			{
+				?>
+				<div id="flashMessage">
+					Nedostatek volných míst.
+				</div>
+				<?php
+			}
+			else
+			{
+				$sql = "INSERT INTO Rezervace (id_klienta, id_projekce, datum, stav, pocet)
+						VALUES ($_userLogged_, $id_projekce, '2015-12-06 20:20', 0, $pocet)";
+				if ($db->query($sql) === TRUE)
+				{
+					header("Location: my_reservations.php");
+				}
+				else
+				{
+					?>
+					<div id="flashMessage">
+						Rezervaci se nepodaøilo vlo¾it do databáze.
+					</div>
+					<?php
+				}
+			}
+		}
 	}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
@@ -114,6 +161,9 @@
 							*/
 						?>
 					</select></br>
+					<?php
+					echo("<input type='hidden' name='id_projekce' value='" . $id_projekce . "' readonly />");
+					?>
 					<label for="reserve">Poèet míst</label>
 					<input type="text" name="reserve" required style="width: 40px; margin-top: 20px;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
 					<div class="topMargin">

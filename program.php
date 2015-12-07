@@ -32,7 +32,7 @@
 					{
 						while($row_projection = $result_projection->fetch_assoc())
 						{
-							if( time () >  strtotime($row_projection['cas_zahajeni'] .' -1 Week') and time() < strtotime($row_projection['cas_ukonceni'] . ' -1 Week') )
+							if( time() >  strtotime($row_projection['cas_zahajeni'] .' -1 Week') and time() < strtotime($row_projection['cas_ukonceni'] . ' -1 Week') )
 							{
 								if( $row_projection['id_kina'] == $row['id_kina'] )
 								{

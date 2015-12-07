@@ -96,7 +96,7 @@
 		</form>
 		<hr>
 		<div class="description">
-			*Formát zadání data je rrrr-mm-dd hh:mm.
+			*Formát data je rrrr-mm-dd hh:mm.
 		</div>
 	</div>
 	<?php include 'footer.php'; ?>

@@ -16,12 +16,6 @@
 	<div class="content" >
 		<table align="center" border="0">
 			<tr>
-				<td><hr style='width: 100%;'><h2>Prodejní sekce</h2></td>
-			</tr>
-			<tr>
-				<td><button type="button" name="btn-login" onclick="window.location='sell.php';">Prodat lístek</button></td>
-			</tr>
-			<tr>
 				<td><hr style='width: 100%;'><h2>Klientská sekce</h2></td>
 			</tr>
 			<tr>
