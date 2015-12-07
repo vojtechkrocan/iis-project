@@ -7,7 +7,6 @@
 		?>
 		<script>alert("Pøihla¹te se prosím za u¾ivatelský úèet.");</script>
 		<?php
-		//header("Location: index.php");
 	}
 
 	if( isset($_POST['btn-del']) )
@@ -43,7 +42,7 @@
 					ON R.id_projekce = P.id_projekce AND R.id_klienta = K.id_klienta AND P.id_filmu = F.id_filmu
 					AND P.id_salu = S.id_salu AND S.id_kina = Ki.id_kina
 					WHERE R.id_klienta = $_userLogged_
-					ORDER BY P.cas_zahajeni DESC";
+					ORDER BY R.datum DESC";
 			$result = $db->query($sql);
 			if( $result->num_rows > 0 )
 			{
@@ -54,6 +53,8 @@
 					<td>Cena</td>
 					<td>Datum</td>
 					<td>Kino</td>
+					<td>Sál</td>
+					<td>Poèet</td>
 					<td style='width: 45px;'>Zru¹it</td>
 					</tr>");
 
@@ -64,6 +65,8 @@
 						<td>" . $row["cena"] . "</td>
 						<td>" . $row["datum"] . "</td>
 						<td>" . $row["Kinazev"] . "</td>
+						<td>" . $row["Snazev"] . "</td>
+						<td>" . $row["Snazev"] . "</td>
 						<td><form method='post'><input type='hidden' name='id_rezervace' value='" . $row['id_rezervace'] . "' readonly /><button name='btn-del' type='submit'>X</button></input></form></td>
 						</tr>");
 				}
