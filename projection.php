@@ -104,8 +104,9 @@
 			}
 			else
 			{
+				$actual_time = date("Y-m-d H:i", time());
 				$sql = "INSERT INTO Rezervace (id_klienta, id_projekce, datum, stav, pocet)
-						VALUES ($_userLogged_, $id_projekce, '2015-12-06 20:20', 0, $pocet)";
+						VALUES ($_userLogged_, $id_projekce, '$actual_time', 0, $pocet)";
 				if ($db->query($sql) === TRUE)
 				{
 					header("Location: my_reservations.php");
