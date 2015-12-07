@@ -11,15 +11,32 @@
 
 	if( isset($_POST['btn-del']) )
 	{
-		$sql = "DELETE FROM Rezervace
+		$sql = "SELECT *
+				FROM Rezervace
 				WHERE id_rezervace = " . $_POST['id_rezervace'];
-		if ($db->query($sql) === TRUE)
-			header("Location: internal.php");
-		else
+		$result = $db->query($sql);
+		if ($result->num_rows > 0)
 		{
-			echo("<div id='flashMessage'>");
-			echo("Rezervaci " . $username . " se nepodaøilo zru¹it.");
-			echo("</div>");
+			$row = $result->fetch_assoc();
+			if( $row['stav'] != 0 )
+			{
+				echo("<div id='flashMessage'>");
+				echo("Zaplacenou rezervaci ji¾ nelze odstranit z databáze.");
+				echo("</div>");
+			}
+			else
+			{
+				$sql = "DELETE FROM Rezervace
+						WHERE id_rezervace = " . $_POST['id_rezervace'];
+				if ($db->query($sql) === TRUE)
+					header("Location: index.php");
+				else
+				{
+					echo("<div id='flashMessage'>");
+					echo("Rezervaci " . $username . " se nepodaøilo zru¹it.");
+					echo("</div>");
+				}
+			}
 		}
 	}
 ?>

@@ -16,7 +16,7 @@
 		$datum_od = $_POST['datum_od'];
 		$datum_do = $_POST['datum_do'];
 		$celkovy_zisk = 0;
-		$sql = "SELECT P.id_prodeje, P.cena
+		$sql = "SELECT P.id_prodeje, P.cena, P.datum
 				FROM Prodej P JOIN Rezervace R JOIN Projekce Pr JOIN Sal S JOIN Kino K
 				ON P.id_rezervace = R.id_rezervace AND R.id_projekce = Pr.id_projekce
 				AND Pr.id_salu = S.id_salu AND S.id_kina = K.id_kina
@@ -26,8 +26,8 @@
 		{
 			while($row = $result->fetch_assoc())
 			{
-				
-				$celkovy_zisk += $row['cena'];
+				if( $row['datum']  > $datum_od && $row['datum'] < $datum_do )
+					$celkovy_zisk += $row['cena'];
 			}
 		}
 		$nalezen_zisk = true;

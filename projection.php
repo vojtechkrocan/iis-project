@@ -2,7 +2,6 @@
 	require_once 'core.php';
 	require_once 'check_user.php';
 
-	$found = false;
 	if( isset($_GET['id']) )
 	{
 		$id_projekce = $_GET['id'];
@@ -17,7 +16,6 @@
 		if( $result->num_rows == 1 )
 		{
 			$row = $result->fetch_assoc();
-			$found = true;
 			$Snazev = $row['Snazev'];
 			$Fnazev = $row['Fnazev'];
 			$Knazev = $row['Knazev'];
@@ -38,28 +36,36 @@
 			if( $result_free->num_rows > 0)
 			{
 				while($row_free = $result_free->fetch_assoc())
-				{
-					//echo("ID: ");
-					//var_dump($row_free['id_rezervace']);
-					//echo("pocet: ");
-					//var_dump($row_free['pocet']);
 					$volnych_mist -= $row_free['pocet'];
-					//var_dump($volnych_mist);
-				}
 			}
-			//var_dump($volnych_mist);
 		}
 	}
+
+	$display = false;
+	if( isset($_POST['btn-display']) )
+	{
+		$display = true;
+		echo("asdasdasdsad");
+
+	}
+
 
 	if( isset($_POST['btn-order']) )
 	{
 
 		$id_projekce = $_POST['id_projekce'];
 		$pocet = $_POST['reserve'];
+
 		if( $_userRights_ > USER_RIGHTS )
 		{
 			?>
 				<script>alert("Pihla¹te se jako bì¾ný u¾ivatel.");</script>
+			<?php
+		}
+		else if ( $pocet == 0 || !isset($pocet) )
+		{
+			?>
+				<script>alert("Zadejte prosím poèet míst.");</script>
 			<?php
 		}
 		else
@@ -98,6 +104,7 @@
 			}
 			else
 			{
+
 				$sql = "INSERT INTO Rezervace (id_klienta, id_projekce, datum, stav, pocet)
 						VALUES ($_userLogged_, $id_projekce, '2015-12-06 20:20', 0, $pocet)";
 				if ($db->query($sql) === TRUE)
@@ -127,8 +134,21 @@
 	<div class="content">
 		<h2>Projekce</h2>
 		<hr>
+		<h2><?php echo($Fnazev); ?></h2>
+		<form method="post" >
+			<label for='tyden'>Vyberte datum</label>
+			<select name='tyden' class='box' >")
+					<option value='1'>Tento týden</option>
+					<option value='2'>Pøí¹tí týden</option>
+					<option value='3'>Za dva týdny</option>
+			</select></br>
+			<div class="topMargin">
+				<button type="submit" name="btn-display" class="bigger">Zobrazit</button>
+			</div>
+		<form>
+		<hr>
 		<?php
-			if($found)
+			if( $display )
 			{
 				echo("<div><h2 style='text-align: center; font-size: 1.5em;'>" . $Fnazev . "</h2>" .$Znazev);
 				echo("<hr style='width: 40%;'><div class='description'>" . $Knazev . "</br>");
@@ -140,32 +160,17 @@
 				?>
 				<hr style='width: 40%;'>
 				<form method="post" style="padding-top: 20px;">
-					<label for='tyden'>Vyberte datum</label>
-					<select name='tyden' class='box'>")
+
+
 						<?php
-						/*
-							$date_01 = ;
-							$date_02 = ;
-							$date_03 = ; */
-							/*
-							$dates = array(
-								1 =>
-							);
-
-							while()
-							{
-								echo("<option value='" . $ . "' >");
-
-								echo("</option>");
-							}
-							*/
+						
 						?>
-					</select></br>
+
 					<?php
 					echo("<input type='hidden' name='id_projekce' value='" . $id_projekce . "' readonly />");
 					?>
 					<label for="reserve">Poèet míst</label>
-					<input type="text" name="reserve" required style="width: 40px; margin-top: 20px;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+					<input type="text" name="reserve" style="width: 40px; margin-top: 20px;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
 					<div class="topMargin">
 						<button type="submit" name="btn-order" class="bigger">Rezervovat</button>
 					</div>
