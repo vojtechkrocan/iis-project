@@ -23,7 +23,10 @@
 			{
 				$row = $result->fetch_assoc();
 				if( $_userRights_ <= USER_RIGHTS )
+				{
+					echo("<a href='my_reservations.php'>Moje rezervace</a> | ");
 					echo($row['username']);
+				}
 				else
 					echo($row['login']);
 				echo(" | " . $row['jmeno'] . " " . $row['prijmeni'] . " | ");

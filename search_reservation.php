@@ -12,6 +12,7 @@
 <body>
 	<div class="content" >
 		<h2>Vyhledávání rezervací</h2>
+		<hr>
 		<form method="post">
 			<table align="center" border="0">
 				<tr>

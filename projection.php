@@ -7,10 +7,10 @@
 	{
 		$id_projekce = $_GET['id'];
 		$sql = "SELECT P.id_projekce, P.id_salu, P.id_filmu, P.cas_zahajeni, P.cas_ukonceni, S.id_salu, S.id_kina, S.nazev AS Snazev,
-				S.velikost, K.id_kina, K.nazev AS Knazev, F.id_filmu, F.nazev AS Fnazev, F.delka, F.cena
-				FROM Projekce P JOIN Sal S JOIN Kino K JOIN Film F
+				S.velikost, K.id_kina, K.nazev AS Knazev, F.id_filmu, F.nazev AS Fnazev, F.delka, F.cena, Z.id_zanru, Z.nazev AS Znazev
+				FROM Projekce P JOIN Sal S JOIN Kino K JOIN Film F JOIN Zanr Z
 				ON P.id_salu = S.id_salu AND S.id_kina = K.id_kina
-				AND F.id_filmu = P.id_filmu
+				AND F.id_filmu = P.id_filmu AND F.id_zanru = Z.id_zanru
 				WHERE P.id_projekce = $id_projekce
 				ORDER BY P.cas_zahajeni DESC";
 		$result = $db->query($sql);
@@ -21,6 +21,7 @@
 			$Snazev = $row['Snazev'];
 			$Fnazev = $row['Fnazev'];
 			$Knazev = $row['Knazev'];
+			$Znazev = $row['Znazev'];
 			$cena = $row['cena'];
 			$id_klienta = $_userLogged_;
 			$velikost = $row['velikost'];
@@ -32,7 +33,7 @@
 <html>
 <head>
 	<meta http-equiv="content-type" content="text/html; charset=iso-8859-2">
-	<title>Program</title>
+	<title>Projekce</title>
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -42,8 +43,8 @@
 		<?php
 			if($found)
 			{
-				echo("<div><h2 style='text-align: center; font-size: 1.5em;'>" . $Fnazev . "</h2><hr style='width: 40%;'>");
-				echo("<div class='description'>" . $Knazev . "</br>");
+				echo("<div><h2 style='text-align: center; font-size: 1.5em;'>" . $Fnazev . "</h2>" .$Znazev);
+				echo("<hr style='width: 40%;'><div class='description'>" . $Knazev . "</br>");
 				echo("sál " . $Snazev . "</br>"); // velikost salu - pocet rezervaci na danou projekci
 
 				echo( $den[date("D", strtotime($cas_zahajeni))] . " " . date("H:i", strtotime($cas_zahajeni)) );
@@ -53,7 +54,7 @@
 				<hr style='width: 40%;'>
 				<form method="post" style="padding-top: 20px;">
 					<label for="reserve">Poèet rezervací</label>
-					<input type="text" name="reserve" required style="width: 40px;" />
+					<input type="text" name="reserve" required style="width: 40px;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
 					<div class="topMargin">
 						<button type="submit" name="btn-order" class="bigger">Rezervovat</button>
 					</div>

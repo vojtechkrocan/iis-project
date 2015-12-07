@@ -2,9 +2,9 @@
 	require_once 'core.php';
 	require_once 'check_worker.php';
 
-	if( isset($_POST['btn-film']) )
+	if( isset($_POST['btn-del']) )
 	{
-		// TODO odstraneni filmu
+		$_POST['id_filmu'];
 	}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
@@ -58,7 +58,7 @@
 								<td>" . $row['Znazev'] . "</td>
 								<td>" . $row['delka'] . "</td>
 								<td>" . $row['datum_prijeti'] . "</td>
-								<td><form method='post'><input type='hidden' name='btn-film'><button type='submit' value='" . $row['id_filmu'] . "'>X</button></input></form></td>
+								<td><form method='post'><input type='hidden' name='id_filmu' value='" . $row['id_filmu'] . "' readonly /><button type='submit' name='btn-del'>X</button></input></form></td>
 							</tr>");
 					}
 					echo("</table>");

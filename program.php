@@ -22,10 +22,10 @@
 				{
 					echo("<div class='cinema'>" . $row['nazev'] . "</br><hr style='width: 40%;' align='left'><p style='font-size: 0.8em'>" . $row['mesto'] ."</p>");
 					$sql_projection = "SELECT P.id_projekce, P.id_salu, P.id_filmu, P.cas_zahajeni, P.cas_ukonceni, S.id_salu, S.id_kina, S.nazev AS Snazev,
-										S.velikost, K.id_kina, K.nazev AS Knazev, F.id_filmu, F.nazev AS Fnazev, F.delka, F.cena
-										FROM Projekce P JOIN Sal S JOIN Kino K JOIN Film F
+										S.velikost, K.id_kina, K.nazev AS Knazev, F.id_filmu, F.nazev AS Fnazev, F.delka, F.cena, Z.id_zanru, Z.nazev AS Znazev
+										FROM Projekce P JOIN Sal S JOIN Kino K JOIN Film F JOIN Zanr Z
 										ON P.id_salu = S.id_salu AND S.id_kina = K.id_kina
-										AND F.id_filmu = P.id_filmu
+										AND F.id_filmu = P.id_filmu AND F.id_zanru = Z.id_zanru
 										ORDER BY P.cas_zahajeni DESC";
 					$result_projection = $db->query($sql_projection);
 					if( $result_projection->num_rows > 0 )
@@ -38,7 +38,8 @@
 								{
 									echo("<a href='projection.php?id=" . $row_projection['id_projekce'] . "'><table class='projectionTable' cellpadding='5'>");
 									echo("<tr><td>" . $row_projection['Fnazev'] . "</br></br>");
-									echo("<p style='font-size: 0.8em;'>" . $row_projection['delka'] . " minut</p></br>");
+									echo("<p style='font-size: 0.8em;'>" . $row_projection['Znazev'] . "</p></br>");
+									echo("<p style='font-size: 0.8em;'>" . $row_projection['delka'] . " minut</p>");
 									echo( $den[date("D", strtotime($row_projection['cas_zahajeni']))] . " " . date("H:i", strtotime($row_projection['cas_zahajeni'])) . "</br>");
 									echo( "<p style='font-size: 0.8em;'>" . $row_projection['cena'] . " Kè</p></td></tr>" );
 									echo("</table></a>");
