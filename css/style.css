@@ -265,15 +265,17 @@ td button {
 }
 
 .projectionTable td {
-	height: 80px;
-	width: 100px;
+	height: 150px;
+	width: 110px;
 	background: rgba(12,45,78,11);
 	border: 0px;
 	color: #fff;
-	border-radius: 6px;
+	border-radius: 4px;
+	overflow: hidden;
 }
 .projectionTable td:hover {
 	color: #ffc423;
+	cursor: pointer;
 }
 
 

@@ -122,3 +122,23 @@ MODIFY adresa varchar(50) NOT NULL COLLATE latin2_czech_cs;
 
 # rezervace sedadel
 # asi pridat slozenej klic
+
+# update projekci
+UPDATE  `iis_project`.`Projekce` SET  `cas_zahajeni` =  '2015-12-02 12:30:00',
+`cas_ukonceni` =  '2015-12-30 20:45:00' WHERE  `Projekce`.`id_projekce` =1;
+
+UPDATE  `iis_project`.`Projekce` SET  `cas_zahajeni` =  '2015-12-01 09:30:00',
+`cas_ukonceni` =  '2015-12-22 18:00:00' WHERE  `Projekce`.`id_projekce` =2;
+
+UPDATE  `iis_project`.`Projekce` SET  `cas_zahajeni` =  '2015-12-04 18:30:00',
+`cas_ukonceni` =  '2015-04-25 10:45:00' WHERE  `Projekce`.`id_projekce` =3;
+
+UPDATE  `iis_project`.`Projekce` SET  `cas_zahajeni` =  '2015-04-04 20:30:00',
+`cas_ukonceni` =  '2015-04-25 14:15:00' WHERE  `Projekce`.`id_projekce` =4;
+
+UPDATE  `iis_project`.`Projekce` SET  `cas_zahajeni` =  '2015-12-01 18:30:00',
+`cas_ukonceni` =  '2015-12-31 22:50:00' WHERE  `Projekce`.`id_projekce` =5;
+
+UPDATE  `iis_project`.`Projekce` SET  `cas_ukonceni` =  '2015-12-26 10:45:00' WHERE  `Projekce`.`id_projekce` =3;
+
+UPDATE  `iis_project`.`Projekce` SET  `cas_ukonceni` =  '2015-12-31 14:15:00' WHERE  `Projekce`.`id_projekce` =4;

@@ -1,6 +1,11 @@
 <?php
 	require_once 'core.php';
 	require_once 'check_worker.php';
+
+	if( isset($_POST['btn-film']) )
+	{
+		// TODO odstraneni filmu
+	}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
@@ -25,7 +30,7 @@
 			{
 				$search_word = "";
 				$search_word = $_POST['search-word'];
-				$sql = "SELECT F.nazev AS Fnazev, Z.nazev AS Znazev, autor, delka, datum_prijeti
+				$sql = "SELECT F.nazev AS Fnazev, F.id_filmu, Z.nazev AS Znazev, autor, delka, datum_prijeti
 						FROM Film F INNER JOIN Zanr Z
 						ON F.id_zanru = Z.id_zanru
 						WHERE
@@ -42,17 +47,18 @@
 							<td>®ánr</td>
 							<td>Délka</td>
 							<td>Pøidán do systému</td>
-							<td style='width: 45px;'>Editovat</td>
+							<td style='width: 45px;'>Odstranit</td>
 						</tr>");
 
 					while($row = $result->fetch_assoc())
 					{
 						echo("<tr>
-								<td>" . $row["Fnazev"] . "</td>
-								<td>" . $row["autor"] . "</td>
-								<td>" . $row["Znazev"] . "</td>
-								<td>" . $row["delka"] . "</td>
-								<td>" . $row["datum_prijeti"] . "</td>
+								<td>" . $row['Fnazev'] . "</td>
+								<td>" . $row['autor'] . "</td>
+								<td>" . $row['Znazev'] . "</td>
+								<td>" . $row['delka'] . "</td>
+								<td>" . $row['datum_prijeti'] . "</td>
+								<td><form method='post'><input type='hidden' name='btn-film'><button type='submit' value='" . $row['id_filmu'] . "'>X</button></input></form></td>
 							</tr>");
 					}
 					echo("</table>");

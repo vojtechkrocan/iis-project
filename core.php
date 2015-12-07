@@ -12,4 +12,12 @@
 	if( isset($_SESSION['rights']) and $_SESSION['rights'] != "")
 		$_userRights_ = $_SESSION['rights'];
 	include 'header.php';
+
+	$den['Mon'] = 'pondìlí';
+	$den['Tue'] = 'úterý';
+	$den['Wed'] = 'støeda';
+	$den['Thu'] = 'ètvrtek';
+	$den['Fri'] = 'pátek';
+	$den['Sat'] = 'sobota';
+	$den['Sun'] = 'nedìle';
 ?>

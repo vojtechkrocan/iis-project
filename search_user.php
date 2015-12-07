@@ -47,11 +47,11 @@
 					while($row = $result->fetch_assoc())
 					{
 						echo("<tr>
-							<td>" . $row["jmeno"] . "</td>
-							<td>" . $row["prijmeni"] . "</td>
-							<td>" . $row["username"] . "</td>
-							<td>" . $row["vek"] . " let</td>
-							<td><button onclick=\"window.location='edit_user.php?id=" . $row["id_klienta"] . "'\">E</button></td>
+							<td>" . $row['jmeno'] . "</td>
+							<td>" . $row['prijmeni'] . "</td>
+							<td>" . $row['username'] . "</td>
+							<td>" . $row['vek'] . " let</td>
+							<td><button onclick=\"window.location='edit_user.php?id=" . $row['id_klienta'] . "'\" >E</button></td>
 							</tr>");
 					}
 					echo("</table>");

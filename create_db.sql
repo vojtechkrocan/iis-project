@@ -183,7 +183,7 @@ INSERT INTO Film VALUES (8, 6, '8000 Metrù nad Moøem', 'Willy Guy', 90, STR_TO_D
 INSERT INTO Film VALUES (9, 4, 'Kód Pravdy', 'Jáchym Hladil', 159, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
 INSERT INTO Film VALUES (10, 6, 'Mars: Voda a ¾ivot', 'John Geller', 102, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
 INSERT INTO Film VALUES (11, 2, 'Policie Ulanbatar: Zmizení­ jurty', 'Sechuan Jiang', 96, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
-INSERT INTO Film VALUES (12, 1, 'Agent ve ©lole 3', 'Sheldon Reynolds', 80, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
+INSERT INTO Film VALUES (12, 1, 'Agent ve ©kole 3', 'Sheldon Reynolds', 80, STR_TO_DATE('02.05.2015','%d.%m.%Y'), NULL);
 
 INSERT INTO Zamestnanec VALUES (1, NULL, 1, 'Petr', 'Bøíza', 'xbriz00', 'angryturkey', 'Kolejní­ 5, Brno', 666888999);
 INSERT INTO Zamestnanec VALUES (2, 1, 1, 'Lucie', 'Pravdová', 'xprav00', 'angryturkey', 'Purkyòova 16, Brno', 724589659);

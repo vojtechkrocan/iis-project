@@ -32,13 +32,16 @@
 					{
 						while($row_projection = $result_projection->fetch_assoc())
 						{
-							if( $row_projection['id_kina'] == $row['id_kina'] )
+							if( time () >  strtotime($row_projection['cas_zahajeni'] .' -1 Week') and time() < strtotime($row_projection['cas_ukonceni'] . ' -1 Week') )
 							{
-								echo("<a href='projection.php?id=" . $row_projection['id_projekce'] . "'><table class='projectionTable' cellpadding='15'>");
-								echo("<tr><td>" . $row_projection['Fnazev'] . "</br></br>");
-								echo("<p style='font-size: 0.8em;'>" . $row_projection['delka'] . " minut</p></br>");
-								echo( date("H:i", strtotime($row_projection['cas_zahajeni'])) . "</td></tr>");
-								echo("</table></a>");
+								if( $row_projection['id_kina'] == $row['id_kina'] )
+								{
+									echo("<a href='projection.php?id=" . $row_projection['id_projekce'] . "'><table class='projectionTable' cellpadding='5'>");
+									echo("<tr><td>" . $row_projection['Fnazev'] . "</br></br>");
+									echo("<p style='font-size: 0.8em;'>" . $row_projection['delka'] . " minut</p></br>");
+									echo( $den[date("D", strtotime($row_projection['cas_zahajeni']))] . " " . date("H:i", strtotime($row_projection['cas_zahajeni'])) . "</td></tr>" );
+									echo("</table></a>");
+								}
 							}
 						}
 					}
@@ -47,29 +50,6 @@
 			}
 			else
 				echo ("Do¹lo k SQL chybì: " . $db->error);
-		?>
-
-		<?php
-			/*
-			$sql = "SELECT P.cas_zahajeni, S.id_salu, F.nazev
-					FROM Projekce P, Film F, Sal S
-					WHERE P.id_salu = S.id_salu AND P.id_filmu = F.id_filmu";
-			$result = $db->query($sql);
-			if ($result->num_rows > 0)
-			{
-				while($row = $result->fetch_assoc())
-				{
-					echo("<table >");
-					echo("<tr><td>Zahájení:" . $row["cas_zahajeni"] . "</td></tr>");
-					echo("<tr><td>Sál: " . $row["id_salu"] . "</td></tr>");
-					echo("<tr><td>Film: " . $row["nazev"] . "</td></tr>");
-					echo("</table>");
-				}
-
-			}
-			else
-			    echo ("DEBUG: Chyba sql: " . $db->error);
-			*/
 		?>
 	</div>
 	<?php include 'footer.php'; ?>
