@@ -35,7 +35,7 @@
 		<h2>Moje rezervace</h2>
 		<hr>
 		<?php
-			$sql = "SELECT R.id_rezervace, R.id_klienta, R.id_projekce, R.datum, R.stav, P.id_projekce, P.id_salu,
+			$sql = "SELECT R.id_rezervace, R.id_klienta, R.id_projekce, R.datum, R.stav, R.pocet, P.id_projekce, P.id_salu,
 					P.id_filmu, K.id_klienta, F.id_filmu, F.nazev AS Fnazev, F.cena, Ki.id_kina, Ki.nazev AS Kinazev,
 					S.id_salu, S.nazev AS Snazev
 					FROM Rezervace R JOIN Projekce P JOIN Klient K JOIN Film F JOIN Kino Ki JOIN Sal S
@@ -66,7 +66,7 @@
 						<td>" . $row["datum"] . "</td>
 						<td>" . $row["Kinazev"] . "</td>
 						<td>" . $row["Snazev"] . "</td>
-						<td>" . $row["Snazev"] . "</td>
+						<td>" . $row["pocet"] . "</td>
 						<td><form method='post'><input type='hidden' name='id_rezervace' value='" . $row['id_rezervace'] . "' readonly /><button name='btn-del' type='submit'>X</button></input></form></td>
 						</tr>");
 				}

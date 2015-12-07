@@ -26,7 +26,47 @@
 			$id_klienta = $_userLogged_;
 			$velikost = $row['velikost'];
 			$cas_zahajeni = $row['cas_zahajeni'];
+			$cas_ukonceni = $row['cas_ukonceni'];
+
+			$volnych_mist = $row['velikost'];
+			var_dump($volnych_mist);
+			$sql_free = "SELECT *
+						FROM Rezervace R, Projekce P
+						WHERE R.id_projekce = P.id_projekce
+						AND P.id_projekce = " . $id_projekce;
+			$result_free = $db->query($sql_free);
+			if( $result_free->num_rows > 0)
+			{
+				while($row_free = $result_free->fetch_assoc())
+				{
+					echo("ID: ");
+					var_dump($row_free['id_rezervace']);
+					echo("pocet: ");
+					var_dump($row_free['pocet']);
+					$volnych_mist -= $row_free['pocet'];
+					var_dump($volnych_mist);
+				}
+			}
+			var_dump($volnych_mist);
 		}
+	}
+
+	if( isset($_POST['btn-order']) )
+	{
+		$sql = "SELECT ";
+		$mista = 0;
+		$sql_free = "SELECT *
+					FROM Rezervace R, Projekce P
+					WHERE R.id_projekce = P.id_projekce
+					AND P.id_projekce = " . $id_projekce;
+		$result_free = $db->query($sql_free);
+		if( $result_free->num_rows > 0)
+		{
+			while($row_free = $result_free->fetch_assoc())
+				$mista -= $row_free['pocet'];
+		}
+		var_dump($mista);
+		//Header("Location my_reservations.php");
 	}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
@@ -49,12 +89,33 @@
 
 				echo( $den[date("D", strtotime($cas_zahajeni))] . " " . date("H:i", strtotime($cas_zahajeni)) );
 				echo("</div><hr style='width: 40%;'><p style='text-transform: uppercase;'>va¹e cena " . $cena . " Kè</p>");
-				echo("<p style='text-transform: uppercase;'>volných míst " . "</p>");
+				echo("<p style='text-transform: uppercase;'>volných míst " . $volnych_mist . "</p>");
 				?>
 				<hr style='width: 40%;'>
 				<form method="post" style="padding-top: 20px;">
-					<label for="reserve">Poèet rezervací</label>
-					<input type="text" name="reserve" required style="width: 40px;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
+					<label for='tyden'>Vyberte datum</label>
+					<select name='tyden' class='box'>")
+						<?php
+						/*
+							$date_01 = ;
+							$date_02 = ;
+							$date_03 = ; */
+							/*
+							$dates = array(
+								1 =>
+							);
+
+							while()
+							{
+								echo("<option value='" . $ . "' >");
+
+								echo("</option>");
+							}
+							*/
+						?>
+					</select></br>
+					<label for="reserve">Poèet míst</label>
+					<input type="text" name="reserve" required style="width: 40px; margin-top: 20px;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' />
 					<div class="topMargin">
 						<button type="submit" name="btn-order" class="bigger">Rezervovat</button>
 					</div>
@@ -64,11 +125,7 @@
 				echo("</div>");
 			}
 			else
-			{
-				?>
-				<div>Neexistující projekce.</div>
-				<?php
-			}
+				echo("<div>Neexistující projekce.</div>");
 		?>
 	</div>
 	<?php include 'footer.php'; ?>

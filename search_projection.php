@@ -1,6 +1,24 @@
 <?php
 	require_once 'core.php';
 	require_once 'check_worker.php';
+
+	if( isset($_POST['btn-del']) )
+	{
+		$id_projekce = $_POST['id_projekce'];
+		$sql = "DELETE FROM Projekce
+				WHERE id_projekce = $id_projekce";
+		var_dump($sql);
+		if ($db->query($sql) === TRUE)
+		{
+			header("Location: internal.php");
+		}
+		else
+		{
+			echo("<div id='flashMessage'>");
+			echo("U¾ivatele " . $username . " se nepodaøilo odstranit z databáze.");
+			echo("</div>");
+		}
+	}
 ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN>
 <html>
@@ -57,7 +75,7 @@
 							<td>" . $row["Knazev"] . "</td>
 							<td>" . $row["mesto"] . "</td>
 							<td>" . $row["telefoni_cislo"] . "</td>
-							<td><form method='post'><input type='hidden' name='btn-projection'><button type='submit' value='" . $row['id_projekce'] . "'>X</button></input></form></td>
+							<td><form method='post'><input type='hidden' name='id_projekce' value='" . $row['id_projekce'] . "' readonly /><button type='submit' name='btn-del'>X</button></form></td>
 							</tr>");
 					}
 					echo("</table>");
