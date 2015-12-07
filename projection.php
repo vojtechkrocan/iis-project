@@ -23,6 +23,8 @@
 			$Knazev = $row['Knazev'];
 			$cena = $row['cena'];
 			$id_klienta = $_userLogged_;
+			$velikost = $row['velikost'];
+			$cas_zahajeni = $row['cas_zahajeni'];
 		}
 	}
 ?>
@@ -41,10 +43,22 @@
 			if($found)
 			{
 				echo("<div><h2 style='text-align: center; font-size: 1.5em;'>" . $Fnazev . "</h2><hr style='width: 40%;'>");
-				echo($Knazev . "</br>");
-				echo("sál " . $Snazev . "</br>");
-				echo("va¹e cena " . $cena . " Kè</br><hr style='width: 40%;'>");
-				echo("volných míst "); // velikost salu - pocet rezervaci na danou projekci
+				echo("<div class='description'>" . $Knazev . "</br>");
+				echo("sál " . $Snazev . "</br>"); // velikost salu - pocet rezervaci na danou projekci
+
+				echo( $den[date("D", strtotime($cas_zahajeni))] . " " . date("H:i", strtotime($cas_zahajeni)) );
+				echo("</div><hr style='width: 40%;'><p style='text-transform: uppercase;'>va¹e cena " . $cena . " Kè</p>");
+				echo("<p style='text-transform: uppercase;'>volných míst " . "</p>");
+				?>
+				<hr style='width: 40%;'>
+				<form method="post" style="padding-top: 20px;">
+					<label for="reserve">Poèet rezervací</label>
+					<input type="text" name="reserve" required style="width: 40px;" />
+					<div class="topMargin">
+						<button type="submit" name="btn-order" class="bigger">Rezervovat</button>
+					</div>
+				</form>
+				<?php
 				// rezervace staci na tyden v roce - cas je na projekci...datum v podstate taky
 				echo("</div>");
 			}

@@ -43,13 +43,13 @@
 					<td><label for="username">U¾ivatelské jméno</label></td>
 				</tr>
 				<tr>
-					<td><input type="text" name="username" placeholder="Pøihla¹ovací jméno" id="username" required /></td>
+					<td><input type="text" name="username" placeholder="Pøihla¹ovací jméno" required /></td>
 				</tr>
 				<tr>
 					<td><label for="pass">Heslo</label></td>
 				</tr>
 				<tr>
-					<td><input type="password" name="pass" placeholder="Heslo" id="pass" required /></td>
+					<td><input type="password" name="pass" placeholder="Heslo" required /></td>
 				</tr>
 				<tr>
 					<td><button type="submit" name="btn-login" class="topMargin">Pøihlásit se</button></td>

@@ -16,13 +16,13 @@
 	<div class="content" >
 		<table align="center" border="0">
 			<tr>
-				<td><h2>Prodejní sekce</h2></td>
+				<td><hr style='width: 100%;'><h2>Prodejní sekce</h2></td>
 			</tr>
 			<tr>
 				<td><button type="button" name="btn-login" onclick="window.location='sell.php';">Prodat lístek</button></td>
 			</tr>
 			<tr>
-				<td><h2>Klientská sekce</h2></td>
+				<td><hr style='width: 100%;'><h2>Klientská sekce</h2></td>
 			</tr>
 			<tr>
 				<td><button type="submit" onclick="window.location='search_user.php';">Hledat klienta</button></td>
@@ -31,7 +31,7 @@
 				<td><button type="submit" onclick="window.location='add_user.php';">Pøidat nového klienta</button></td>
 			</tr>
 			<tr>
-				<td><h2>Filmová sekce</h2></td>
+				<td><hr style='width: 100%;'><h2>Filmová sekce</h2></td>
 			</tr>
 			<tr>
 				<td><button type="submit" onclick="window.location='search_movie.php';">Hledat film</button></td>
@@ -40,22 +40,24 @@
 				<td><button type="submit" onclick="window.location='add_movie.php';">Pøidat nový film</button></td>
 			</tr>
 			<tr>
-				<td><h2>Rezervaèní sekce</h2></td>
+				<td><hr style='width: 100%;'><h2>Rezervaèní sekce</h2></td>
 			</tr>
 			<tr>
 				<td><button type="submit" onclick="window.location='search_reservation.php';">Hledat rezervaci</button></td>
 			</tr>
+			<!--
 			<tr>
 				<td><button type="submit" onclick="window.location='add_reservation.php';">Pøidat rezervaci</button></td>
 			</tr>
+			-->
 			<tr>
-				<td><h2>Projekèní sekce</h2></td>
+				<td><hr style='width: 100%;'><h2>Projekèní sekce</h2></td>
 			</tr>
 			<tr>
 				<td><button type="submit" onclick="window.location='search_projection.php';">Hledat projekci</button></td>
 			</tr>
 			<tr>
-				<td><button type="submit" onclick="window.location='';">Pøidat projekci</button></td>
+				<td><button type="submit" onclick="window.location='add_projection.php';">Pøidat projekci</button></td>
 			</tr>
 			<!-- tohle uz ma videt jen ten, kdo ma jako nadrizeneho NULL -->
 			<?php
@@ -63,7 +65,7 @@
 				{
 					?>
 					<tr>
-						<td><h2>Administraèní sekce</h2></td>
+						<td><hr style='width: 100%;'><h2>Administraèní sekce</h2></td>
 					</tr>
 					<tr>
 						<td><button type="submit" onclick="window.location='add_worker.php';">Pøidat zamìstnance</button></td>
