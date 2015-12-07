@@ -72,12 +72,5 @@
 		</form>
 	</div>
 	<?php include 'footer.php'; ?>
-	<script>
-		var fm = document.getElementById("flashMessage");
-		console.log(fm);
-		$('fm').click(function(){
-        	$(this).hide();
-		});
-	</script>
 </body>
 </html>

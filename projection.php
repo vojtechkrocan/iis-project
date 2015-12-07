@@ -15,6 +15,7 @@
 		$result = $db->query($sql);
 		if( $result->num_rows == 1 )
 		{
+			// data pro zobrazovanou projekci
 			$row = $result->fetch_assoc();
 			$Snazev = $row['Snazev'];
 			$Fnazev = $row['Fnazev'];
@@ -23,11 +24,12 @@
 			$cena = $row['cena'];
 			$id_klienta = $_userLogged_;
 			$velikost = $row['velikost'];
+
 			$cas_zahajeni = $row['cas_zahajeni'];
 			$cas_ukonceni = $row['cas_ukonceni'];
 
 			$volnych_mist = $row['velikost'];
-			//var_dump($volnych_mist);
+			// a cas je tento tyden, za dva za 3
 			$sql_free = "SELECT *
 						FROM Rezervace R, Projekce P
 						WHERE R.id_projekce = P.id_projekce
@@ -45,13 +47,13 @@
 	if( isset($_POST['btn-display']) )
 	{
 		$display = true;
-		echo("asdasdasdsad");
-
+		$cas_tento_tyden = "";
+		$cas_pristi_tyden = "";
+		$cas_za_2_tydny = "";
 	}
 
 	if( isset($_POST['btn-order']) )
 	{
-
 		$id_projekce = $_POST['id_projekce'];
 		$pocet = $_POST['reserve'];
 
@@ -61,10 +63,10 @@
 				<script>alert("Pihla¹te se jako bì¾ný u¾ivatel.");</script>
 			<?php
 		}
-		else if ( $pocet == 0 || !isset($pocet) )
+		else if ( !isset($pocet) || $pocet == 0 )
 		{
 			?>
-				<script>alert("Zadejte prosím poèet míst.");</script>
+				<script>alert("Zadejte prosím poèet míst, které chcete zarezervovat.");</script>
 			<?php
 		}
 		else
@@ -92,7 +94,6 @@
 					$obsazeno += $row_free['pocet'];
 			}
 			$mista -= $obsazeno;
-			// mista = pocet volnych mist
 			if( $pocet > $mista )
 			{
 				?>
@@ -103,7 +104,6 @@
 			}
 			else
 			{
-
 				$sql = "INSERT INTO Rezervace (id_klienta, id_projekce, datum, stav, pocet)
 						VALUES ($_userLogged_, $id_projekce, '2015-12-06 20:20', 0, $pocet)";
 				if ($db->query($sql) === TRUE)
@@ -133,10 +133,10 @@
 	<div class="content">
 		<h2>Projekce</h2>
 		<hr>
-		<h2><?php echo($Fnazev); ?></h2>
+		<h2><?php echo($Fnazev . "</br>" . $den[date("D", strtotime($cas_zahajeni))] . " " . date("H:i", strtotime($cas_zahajeni)));  ?></h2>
 		<form method="post" >
-			<label for='tyden'>Vyberte datum</label>
-			<select name='tyden' class='box' >")
+			<label for='tyden'>Vyberte týden</label>
+			<select name='tyden' class='box' >
 					<option value='1'>Tento týden</option>
 					<option value='2'>Pøí¹tí týden</option>
 					<option value='3'>Za dva týdny</option>
@@ -151,7 +151,7 @@
 			{
 				echo("<div><h2 style='text-align: center; font-size: 1.5em;'>" . $Fnazev . "</h2>" .$Znazev);
 				echo("<hr style='width: 40%;'><div class='description'>" . $Knazev . "</br>");
-				echo("sál " . $Snazev . "</br>"); // velikost salu - pocet rezervaci na danou projekci
+				echo("sál " . $Snazev . "</br>");
 
 				echo( $den[date("D", strtotime($cas_zahajeni))] . " " . date("H:i", strtotime($cas_zahajeni)) );
 				echo("</div><hr style='width: 40%;'><p style='text-transform: uppercase;'>va¹e cena " . $cena . " Kè</p>");
@@ -159,11 +159,6 @@
 				?>
 				<hr style='width: 40%;'>
 				<form method="post" style="padding-top: 20px;">
-
-
-						<?php
-
-						?>
 
 					<?php
 					echo("<input type='hidden' name='id_projekce' value='" . $id_projekce . "' readonly />");
@@ -175,7 +170,6 @@
 					</div>
 				</form>
 				<?php
-				// rezervace staci na tyden v roce - cas je na projekci...datum v podstate taky
 				echo("</div>");
 			}
 			else

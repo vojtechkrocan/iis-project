@@ -50,8 +50,6 @@
 					$divide++;
 				}
 			}
-			else
-			    echo ("Doslo k SQL chybe: " . $db->error);
 		?>
 	</div>
 	<?php include 'footer.php'; ?>

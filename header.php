@@ -1,7 +1,3 @@
-<?php
-	//var_dump($_userLogged_);
-	//var_dump($_userRights_);
-?>
 <div class="topbar">
 	<?php
 		if( $_userLogged_ )
@@ -56,8 +52,6 @@
 			<a href="program.php" class="menuItem">Program</a>
 			<a href="cinemas.php" class="menuItem">Kina</a>
 			<a href="contact.php" class="menuItem">Kontakt</a>
-			<!-- Zobrazit jen kdyz je admin
-			<a href="internal.php" class="menuItem">Interní</a> -->
 			<?php
 				if( $_userRights_ > USER_RIGHTS )
 				{
