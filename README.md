@@ -1,4 +1,4 @@
-projekt: FIT VUTBR IIS Project 2015
+projekt: fit vutbr iis (2015)
 
 autoři: xkaliv06, xkonde03
 
